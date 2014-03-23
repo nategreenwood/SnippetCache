@@ -1,0 +1,66 @@
+﻿@using System.Globalization
+@using SnippetCache.Data.DTO
+
+@model SnippetCache.WebUI.Areas.Snippets.Models.CreateSnippetModelPrivate
+@{
+    IEnumerable<SelectListItem> languages = new List<SelectListItem>();
+    foreach (LanguageDTO languageDTO in Model.Languages)
+    {
+        var temp = new SelectListItem
+                       {
+                           Text = languageDTO.Name,
+                           Value = languageDTO.Id.ToString(CultureInfo.InvariantCulture)
+                       };
+        ((List<SelectListItem>)languages).Add(temp);
+    }
+}
+
+<div>
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(d => d.LanguageId)
+</div>
+<table>
+    <thead>
+        <tr>
+            <th id="create-public-title">Title: @Html.TextBoxFor(d => d.Name)
+                @Html.ValidationMessageFor(d => d.Name)
+            </th>
+        </tr>
+        <tr>
+            <th id="create-public-description">Description: @Html.TextBoxFor(d => d.Description)
+                @Html.ValidationMessageFor(d => d.Description)
+            </th>
+        </tr>
+        <tr>
+            <th>Languages:
+                @Html.DropDownList("languages", languages)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="2" rowspan="150" id="create-public-data">
+                <pre id="snippet-editor">@Model.Data</pre>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    @Html.Partial("_UploadPrivateFileControl")
+    @Html.Partial("_AddHyperlinkControl")
+</div>
+<table>
+    <tbody>
+        <tr>
+            <td>
+                <div>
+                    @Html.ActionLink("Create", "Create", "Public", new { area = "Snippets" }, null)
+                </div>
+                <div>
+                    @Html.ActionLink("Cancel", "All", "Public", new { area = "Snippets" }, null)
+
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

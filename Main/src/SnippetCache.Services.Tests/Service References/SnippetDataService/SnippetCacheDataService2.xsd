@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://snippetcache.net/services/snippetcache/DataWcf/SnippetCacheDataService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="CreateNewCommentRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateLastModified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SnippetId" type="xs:int" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserFormsAuthId" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreateNewCommentRequest" nillable="true" type="tns:CreateNewCommentRequest" />
+  <xs:complexType name="UpdateCommentRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateLastModified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateCommentRequest" nillable="true" type="tns:UpdateCommentRequest" />
+  <xs:complexType name="DeleteCommentRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteCommentRequest" nillable="true" type="tns:DeleteCommentRequest" />
+  <xs:complexType name="GetFilesBySnippetIdRequest">
+    <xs:sequence>
+      <xs:element name="SnippetId" type="ser:guid" />
+      <xs:element name="UserGuid" type="ser:guid" />
+      <xs:element name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetFilesBySnippetIdRequest" nillable="true" type="tns:GetFilesBySnippetIdRequest" />
+  <xs:complexType name="GetFileByIdRequest">
+    <xs:sequence>
+      <xs:element name="FileId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetFileByIdRequest" nillable="true" type="tns:GetFileByIdRequest" />
+  <xs:complexType name="GetFilesByUserIdRequest">
+    <xs:sequence>
+      <xs:element name="SnippetId" type="xs:int" />
+      <xs:element name="UserGuid" type="ser:guid" />
+      <xs:element name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetFilesByUserIdRequest" nillable="true" type="tns:GetFilesByUserIdRequest" />
+  <xs:complexType name="CreateFileRequest">
+    <xs:sequence>
+      <xs:element name="Data" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastModified" type="xs:dateTime" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element name="SnippetId" type="xs:int" />
+      <xs:element name="UserGuid" type="ser:guid" />
+      <xs:element name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreateFileRequest" nillable="true" type="tns:CreateFileRequest" />
+  <xs:complexType name="UpdateFileRequest">
+    <xs:sequence>
+      <xs:element name="Data" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastModified" type="xs:dateTime" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element name="SnippetId" type="xs:int" />
+      <xs:element name="UserGuid" type="ser:guid" />
+      <xs:element name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateFileRequest" nillable="true" type="tns:UpdateFileRequest" />
+  <xs:complexType name="DeleteFileRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FileId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteFileRequest" nillable="true" type="tns:DeleteFileRequest" />
+  <xs:complexType name="GetHyperlinksBySnippetIdRequest">
+    <xs:sequence>
+      <xs:element name="SnippetId" type="ser:guid" />
+      <xs:element name="UserGuid" type="ser:guid" />
+      <xs:element name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetHyperlinksBySnippetIdRequest" nillable="true" type="tns:GetHyperlinksBySnippetIdRequest" />
+  <xs:complexType name="GetHyperlinkByIdRequest">
+    <xs:sequence>
+      <xs:element name="HyperlinkId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetHyperlinkByIdRequest" nillable="true" type="tns:GetHyperlinkByIdRequest" />
+  <xs:complexType name="GetHyperlinksByUserIdRequest">
+    <xs:sequence>
+      <xs:element name="SnippetId" type="xs:int" />
+      <xs:element name="UserGuid" type="ser:guid" />
+      <xs:element name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetHyperlinksByUserIdRequest" nillable="true" type="tns:GetHyperlinksByUserIdRequest" />
+  <xs:complexType name="CreateHyperlinkRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastModified" type="xs:dateTime" />
+      <xs:element name="SnippetId" type="xs:int" />
+      <xs:element name="Uri" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreateHyperlinkRequest" nillable="true" type="tns:CreateHyperlinkRequest" />
+  <xs:complexType name="UpdateHyperlinkRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element name="HyperlinkId" type="xs:int" />
+      <xs:element minOccurs="0" name="LastModified" type="xs:dateTime" />
+      <xs:element name="Uri" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateHyperlinkRequest" nillable="true" type="tns:UpdateHyperlinkRequest" />
+  <xs:complexType name="DeleteHyperlinkRequest">
+    <xs:sequence>
+      <xs:element name="HyperlinkId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteHyperlinkRequest" nillable="true" type="tns:DeleteHyperlinkRequest" />
+  <xs:complexType name="GetPagedSnippetListRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrentPage" type="xs:int" />
+      <xs:element minOccurs="0" name="IncludePrivate" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SnippetsPerPage" type="xs:int" />
+      <xs:element minOccurs="0" name="UserGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetPagedSnippetListRequest" nillable="true" type="tns:GetPagedSnippetListRequest" />
+  <xs:complexType name="GetSnippetByIdRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetSnippetByIdRequest" nillable="true" type="tns:GetSnippetByIdRequest" />
+  <xs:complexType name="GetSnippetsByUserIdRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      <xs:element minOccurs="0" name="User_FormsAuthId" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetSnippetsByUserIdRequest" nillable="true" type="tns:GetSnippetsByUserIdRequest" />
+  <xs:complexType name="GetSnippetByGuidRequest">
+    <xs:sequence>
+      <xs:element name="Guid" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetSnippetByGuidRequest" nillable="true" type="tns:GetSnippetByGuidRequest" />
+  <xs:complexType name="CreateSnippetRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Guid" type="ser:guid" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsPublic" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Language_Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LastModified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreviewData" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="User_FormsAuthId" type="ser:guid" />
+      <xs:element minOccurs="0" name="User_Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreateSnippetRequest" nillable="true" type="tns:CreateSnippetRequest" />
+  <xs:complexType name="UpdateSnippetRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Guid" type="ser:guid" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsPublic" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Language_Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LastModified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreviewData" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="User_FormsAuthId" type="ser:guid" />
+      <xs:element minOccurs="0" name="User_Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateSnippetRequest" nillable="true" type="tns:UpdateSnippetRequest" />
+  <xs:complexType name="DeleteSnippetRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteSnippetRequest" nillable="true" type="tns:DeleteSnippetRequest" />
+  <xs:complexType name="GetSnippetsByTitleRequest">
+    <xs:sequence>
+      <xs:element name="TitleText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetSnippetsByTitleRequest" nillable="true" type="tns:GetSnippetsByTitleRequest" />
+  <xs:complexType name="GetSnippetsByDescriptionRequest">
+    <xs:sequence>
+      <xs:element name="DescriptionText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetSnippetsByDescriptionRequest" nillable="true" type="tns:GetSnippetsByDescriptionRequest" />
+  <xs:complexType name="GetSnippetsByDataRequest">
+    <xs:sequence>
+      <xs:element name="DataString" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetSnippetsByDataRequest" nillable="true" type="tns:GetSnippetsByDataRequest" />
+  <xs:complexType name="GetAllLanguagesRequest">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="GetAllLanguagesRequest" nillable="true" type="tns:GetAllLanguagesRequest" />
+  <xs:complexType name="GetLanguageByIdRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetLanguageByIdRequest" nillable="true" type="tns:GetLanguageByIdRequest" />
+  <xs:complexType name="GetLanguageByNameRequest">
+    <xs:sequence>
+      <xs:element name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetLanguageByNameRequest" nillable="true" type="tns:GetLanguageByNameRequest" />
+  <xs:complexType name="CreateNewLanguageRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreateNewLanguageRequest" nillable="true" type="tns:CreateNewLanguageRequest" />
+  <xs:complexType name="UpdateLanguageRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateLanguageRequest" nillable="true" type="tns:UpdateLanguageRequest" />
+  <xs:complexType name="DeleteLanguageRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteLanguageRequest" nillable="true" type="tns:DeleteLanguageRequest" />
+  <xs:complexType name="GetAllUsersRequest">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="GetAllUsersRequest" nillable="true" type="tns:GetAllUsersRequest" />
+  <xs:complexType name="GetUserByIdRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FormsAuthId" type="ser:guid" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetUserByIdRequest" nillable="true" type="tns:GetUserByIdRequest" />
+  <xs:complexType name="GetUserByNameRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LoginName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetUserByNameRequest" nillable="true" type="tns:GetUserByNameRequest" />
+  <xs:complexType name="CreateNewUserRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AvatarImage" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FormsAuthId" type="ser:guid" />
+      <xs:element minOccurs="0" name="LoginName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreateNewUserRequest" nillable="true" type="tns:CreateNewUserRequest" />
+  <xs:complexType name="UpdateUserRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AvatarImage" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FormsAuthId" type="ser:guid" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LoginName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateUserRequest" nillable="true" type="tns:UpdateUserRequest" />
+  <xs:complexType name="DeleteUserRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FormsAuthId" type="ser:guid" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteUserRequest" nillable="true" type="tns:DeleteUserRequest" />
+  <xs:complexType name="GetAllNotificationTypesRequest">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="GetAllNotificationTypesRequest" nillable="true" type="tns:GetAllNotificationTypesRequest" />
+  <xs:complexType name="ArrayOfNotificationTypeQuickInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NotificationTypeQuickInfo" nillable="true" type="tns:NotificationTypeQuickInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNotificationTypeQuickInfo" nillable="true" type="tns:ArrayOfNotificationTypeQuickInfo" />
+  <xs:complexType name="NotificationTypeQuickInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NotificationTypeQuickInfo" nillable="true" type="tns:NotificationTypeQuickInfo" />
+  <xs:complexType name="GetNotificationTypesByIdRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetNotificationTypesByIdRequest" nillable="true" type="tns:GetNotificationTypesByIdRequest" />
+  <xs:complexType name="GetNotificationTypesByNameRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetNotificationTypesByNameRequest" nillable="true" type="tns:GetNotificationTypesByNameRequest" />
+  <xs:complexType name="CreateNewNotificationTypesRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreateNewNotificationTypesRequest" nillable="true" type="tns:CreateNewNotificationTypesRequest" />
+  <xs:complexType name="UpdateNotificationTypesRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateNotificationTypesRequest" nillable="true" type="tns:UpdateNotificationTypesRequest" />
+  <xs:complexType name="DeleteNotificationTypesRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteNotificationTypesRequest" nillable="true" type="tns:DeleteNotificationTypesRequest" />
+  <xs:complexType name="GetAllNotificationsRequest">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="GetAllNotificationsRequest" nillable="true" type="tns:GetAllNotificationsRequest" />
+  <xs:complexType name="GetNotificationsByIdRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetNotificationsByIdRequest" nillable="true" type="tns:GetNotificationsByIdRequest" />
+  <xs:complexType name="GetAllNotificationsForUserRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetAllNotificationsForUserRequest" nillable="true" type="tns:GetAllNotificationsForUserRequest" />
+  <xs:complexType name="CreateNewNotificationsRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Notification_Type_Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User_Forms_AuthId" type="ser:guid" />
+      <xs:element minOccurs="0" name="User_Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreateNewNotificationsRequest" nillable="true" type="tns:CreateNewNotificationsRequest" />
+  <xs:complexType name="UpdateNotificationsRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Notification_Type_Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="User_Forms_AuthId" type="ser:guid" />
+      <xs:element minOccurs="0" name="User_Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UpdateNotificationsRequest" nillable="true" type="tns:UpdateNotificationsRequest" />
+  <xs:complexType name="DeleteNotificationsRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeleteNotificationsRequest" nillable="true" type="tns:DeleteNotificationsRequest" />
+  <xs:complexType name="GetAllCommentsRequest">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="GetAllCommentsRequest" nillable="true" type="tns:GetAllCommentsRequest" />
+  <xs:complexType name="GetAllCommentsForSnippetRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SnippetId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetAllCommentsForSnippetRequest" nillable="true" type="tns:GetAllCommentsForSnippetRequest" />
+  <xs:complexType name="GetCommentByIdRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetCommentByIdRequest" nillable="true" type="tns:GetCommentByIdRequest" />
+</xs:schema>

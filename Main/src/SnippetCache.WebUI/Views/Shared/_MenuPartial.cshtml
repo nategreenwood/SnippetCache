@@ -1,0 +1,28 @@
+﻿@using System.Diagnostics
+@using SnippetCache.WebUI.Infrastructure.AccountData
+@{
+    int userId = -1;
+    Guid userGuid = Guid.Empty;
+    if (User.Identity.IsAuthenticated)
+    {
+        var identity = (CustomIdentity)(User.Identity);
+        userId = identity.UserId;
+        userGuid = identity.UserGuid;
+    }
+}
+<nav>
+    <ul id="menu">
+        <li>@Html.ActionLink("Recent Snippets", "All", "Public", new { area = "Snippets" }, null)
+        </li>
+        @{
+            Debug.Assert(Request.LogonUserIdentity != null, "Request.LogonUserIdentity != null");
+        }
+        @if (Request.LogonUserIdentity.IsAuthenticated)
+        {
+            <li>@Html.ActionLink("My Private Snippets", "All", "Private", new { area = "Snippets" }, null)
+            </li>
+        }
+        <li>@Html.ActionLink("Create Public", "Create", "Public", new { area = "Snippets" }, null)</li>
+        <li>@Html.ActionLink("Create Private", "Create", "Private", new { area = "Snippets" }, null)</li>
+    </ul>
+</nav>

@@ -1,0 +1,6 @@
+﻿<%@ ServiceHost 
+    Language="C#" 
+    Debug="true" 
+    Service="SnippetCache.Data.Wcf.SnippetCacheDataService" 
+    CodeBehind="SnippetCacheDataService.svc.cs"
+    Factory="Ninject.Extensions.Wcf.NinjectServiceHostFactory" %>

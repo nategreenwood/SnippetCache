@@ -1,0 +1,11 @@
+﻿@model SnippetCache.WebUI.Areas.Snippets.Models.SnippetDetailsModel
+
+@{
+    ViewBag.Title = "Snippet Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Public Snippet Details</h1>
+
+<div id="snippet-detail-wrapper">
+    @Html.Partial("_SnippetDetailsTablePartial", Model)
+</div>

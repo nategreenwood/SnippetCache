@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{987E73BB-BFB2-4E5D-98B5-2D11AE2B1C39}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SnippetCache.Managers</RootNamespace>
+    <AssemblyName>SnippetCache.Managers</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_NoTests_NoWCF|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug_NoTests_NoWCF\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.0.1.10\lib\net40\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\INotificationManager.cs" />
+    <Compile Include="Abstract\ISnippetManager.cs" />
+    <Compile Include="AdministrationManager.cs" />
+    <Compile Include="CommunicationsManager.cs" />
+    <Compile Include="FileManager.cs" />
+    <Compile Include="Abstract\IManager.cs" />
+    <Compile Include="NotificationManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\DataService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SnippetManager.cs" />
+    <Compile Include="UserManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SnippetCache.Data.EF4\SnippetCache.Data.EF4.csproj">
+      <Project>{B610F50F-67BC-40E0-934C-89993D69C5C6}</Project>
+      <Name>SnippetCache.Data.EF4</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SnippetCache.Data\SnippetCache.Data.csproj">
+      <Project>{5B424237-C28F-4B81-82A9-15D30E9B1D32}</Project>
+      <Name>SnippetCache.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SnippetCache.Engines\SnippetCache.Engines.csproj">
+      <Project>{82D677A1-F83A-464B-95F2-2B3268B11EBA}</Project>
+      <Name>SnippetCache.Engines</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SnippetCache.Utils\SnippetCache.Utils.csproj">
+      <Project>{BE652C62-2B39-4D8A-B572-7DD42D80574F}</Project>
+      <Name>SnippetCache.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.CreateFileResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.CreateHyperlinkResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.CreateNewCommentResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.CreateNewLanguageResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.CreateNewNotificationsResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.CreateNewNotificationTypesResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.CreateNewUserResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.CreateSnippetResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.DeleteCommentResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.DeleteFileResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.DeleteHyperlinkResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.DeleteLanguageResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.DeleteNotificationsResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.DeleteNotificationTypesResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.DeleteSnippetResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.DeleteUserResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetAllCommentsForSnippetResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetAllCommentsResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetAllLanguagesResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetAllNotificationsForUserResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetAllNotificationsResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetAllNotificationTypesResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetAllUsersResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetCommentByIdResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetFileByIdResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetFilesBySnippetIdResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetFilesByUserIdResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetHyperlinkByIdResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetHyperlinksBySnippetIdResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetHyperlinksByUserIdResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetLanguageByIdResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetLanguageByNameResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetNotificationsByIdResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetNotificationTypesByIdResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetNotificationTypesByNameResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetPagedSnippetListResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetSnippetByGuidResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetSnippetByIdResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetSnippetsByDataResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetSnippetsByDescriptionResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetSnippetsByTitleResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetSnippetsByUserIdResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetUserByIdResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.GetUserByNameResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.UpdateCommentResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.UpdateFileResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.UpdateHyperlinkResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.UpdateLanguageResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.UpdateNotificationsResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.UpdateNotificationTypesResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.UpdateSnippetResponse.datasource" />
+    <None Include="Properties\DataSources\SnippetCache.Engines.DataService.UpdateUserResponse.datasource" />
+    <None Include="Service References\DataService\SnippetCacheDataService.wsdl" />
+    <None Include="Service References\DataService\SnippetCacheDataService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataService\SnippetCacheDataService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataService\SnippetCacheDataService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataService\SnippetCacheDataService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DataService\SnippetCacheDataService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\DataService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DataService\SnippetCacheDataService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DataService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DataService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DataService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

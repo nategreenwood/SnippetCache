@@ -1,0 +1,45 @@
+﻿@using SnippetCache.WebUI.Areas.Messages.Models
+@model IEnumerable<SnippetCache.WebUI.Areas.Messages.Models.UserMessagesModel>
+
+@{
+    ViewBag.Title = "User Notifications";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>User Notifications</h1>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <th>
+                Text
+            </th>
+            <th>
+                Date Received
+            </th>
+            <th style="padding-right: 10px; text-align: right;">
+                Remove?
+            </th>
+        </tr>
+
+        @foreach (UserMessagesModel item in Model)
+        {
+            <tr>
+                <td style="padding-left: 10px;">
+                    @Html.DisplayFor(m => item.Text)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.DateCreated)
+                </td>
+                <td style="float: right; padding-right: 25px; text-align: right;">
+                    <input type="checkbox" name="@item.Id" value="@item.Id"/>
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div style="float: right; margin-right: -11px;">
+        <input value="Remove Selected" type="submit"/>
+    </div>
+}

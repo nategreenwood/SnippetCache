@@ -1,0 +1,21 @@
+﻿@using System.Globalization
+@using SnippetCache.Data.DTO
+@model SnippetCache.WebUI.Areas.Snippets.Models.CreateSnippetModel
+@{
+    IEnumerable<SelectListItem> languages = new List<SelectListItem>();
+    foreach (LanguageDTO languageDTO in Model.Languages)
+    {
+        var temp = new SelectListItem
+                       {
+                           Text = languageDTO.Name,
+                           Value = languageDTO.Id.ToString(CultureInfo.InvariantCulture)
+                       };
+        ((List<SelectListItem>)languages).Add(temp);
+    }
+}
+
+<div>
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(d => d.LanguageId)
+</div>
+

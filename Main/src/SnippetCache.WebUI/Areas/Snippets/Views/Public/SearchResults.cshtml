@@ -1,0 +1,42 @@
+﻿@using SnippetCache.WebUI.Areas.Snippets.Models
+@using SnippetCache.WebUI.HtmlHelpers
+@model IEnumerable<SnippetDetailsModel>
+@{
+    ViewBag.Title = "SearchResults";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string searchTerm = string.Empty;
+    if (TempData["SearchTerm"] != null)
+    {
+        searchTerm = TempData["SearchTerm"].ToString();
+    }
+}
+<h1>Results @{
+    if (!string.IsNullOrEmpty(searchTerm))
+    {
+    <text>for "@searchTerm"</text>
+    }
+}</h1>
+<div class="paging-links">
+    @if (Model != null && Model.Any())
+    {
+        @Html.PageLinks(((List<SnippetDetailsModel>)Model)[0].PagingInfo, d => Url.Action("SearchResults", new { page = (d <= 0 ? 1 : d) }))
+    }
+</div>
+
+@{
+    if (Model != null)
+    {
+        foreach (SnippetDetailsModel snippetDetails in Model)
+        {
+    @Html.Partial("SnippetPreviewTable", snippetDetails)
+        }
+    }
+}
+
+<div class="paging-links">
+    @if (Model != null && Model.Any())
+    {
+        @Html.PageLinks(((List<SnippetDetailsModel>)Model)[0].PagingInfo, d => Url.Action("SearchResults", new { page = (d <= 0 ? 1 : d) }))
+    }
+</div>

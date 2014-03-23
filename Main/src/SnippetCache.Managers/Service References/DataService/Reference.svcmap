@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7ba0dade-8d3b-496f-85d7-e058ca4b53b2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52916/SnippetCacheDataService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SnippetCacheDataService.xsd" MetadataType="Schema" ID="afd8c184-a818-4006-bcfe-c8638773e9c2" SourceId="1" SourceUrl="http://localhost:52916/SnippetCacheDataService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SnippetCacheDataService1.xsd" MetadataType="Schema" ID="d6f9da06-c68d-4e4a-b38b-1896e0d26805" SourceId="1" SourceUrl="http://localhost:52916/SnippetCacheDataService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SnippetCacheDataService2.xsd" MetadataType="Schema" ID="23fa046d-ec66-4544-b374-1e3a7e8224d1" SourceId="1" SourceUrl="http://localhost:52916/SnippetCacheDataService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SnippetCacheDataService4.xsd" MetadataType="Schema" ID="22b02d93-9957-4228-a8ee-bfc1f9ac5adf" SourceId="1" SourceUrl="http://localhost:52916/SnippetCacheDataService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SnippetCacheDataService.wsdl" MetadataType="Wsdl" ID="d1d80a8b-80ad-4566-a1cc-aa2bde344137" SourceId="1" SourceUrl="http://localhost:52916/SnippetCacheDataService.svc?wsdl" />
+    <MetadataFile FileName="SnippetCacheDataService3.xsd" MetadataType="Schema" ID="19750327-72c7-4bb4-949c-b924b1589d5c" SourceId="1" SourceUrl="http://localhost:52916/SnippetCacheDataService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SnippetCacheDataService.disco" MetadataType="Disco" ID="25f0c829-2c79-4c4c-96af-9edc4080e9c3" SourceId="1" SourceUrl="http://localhost:52916/SnippetCacheDataService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

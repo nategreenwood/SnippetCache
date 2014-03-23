@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://snippetcache.net/services/snippetcache/DataWcf/SnippetCacheDataService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://snippetcache.net/services/snippetcache/DataWcf/SnippetCacheDataService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SnippetCache.Data.DTO" />
+  <xs:import schemaLocation="http://snippetcache.net/services/snippetcache/DataWcf/SnippetCacheDataService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" />
+  <xs:complexType name="CreateNewCommentResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DateLastModified" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="SnippetId" type="xs:int" />
+          <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserFormsAuthId" type="ser:guid" />
+          <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateNewCommentResponse" nillable="true" type="tns:CreateNewCommentResponse" />
+  <xs:complexType name="ServiceResponseBase">
+    <xs:sequence>
+      <xs:element name="FailureInformation" nillable="true" type="xs:string" />
+      <xs:element name="Success" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceResponseBase" nillable="true" type="tns:ServiceResponseBase" />
+  <xs:complexType name="UpdateCommentResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DateLastModified" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateCommentResponse" nillable="true" type="tns:UpdateCommentResponse" />
+  <xs:complexType name="DeleteCommentResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteCommentResponse" nillable="true" type="tns:DeleteCommentResponse" />
+  <xs:complexType name="GetFilesBySnippetIdResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SnippetCache.Data.DTO" minOccurs="0" name="Files" nillable="true" type="q1:ArrayOfFileDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetFilesBySnippetIdResponse" nillable="true" type="tns:GetFilesBySnippetIdResponse" />
+  <xs:complexType name="GetFileByIdResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SnippetCache.Data.DTO" minOccurs="0" name="File" nillable="true" type="q2:FileDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetFileByIdResponse" nillable="true" type="tns:GetFileByIdResponse" />
+  <xs:complexType name="GetFilesByUserIdResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SnippetCache.Data.DTO" minOccurs="0" name="Files" nillable="true" type="q3:ArrayOfFileDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetFilesByUserIdResponse" nillable="true" type="tns:GetFilesByUserIdResponse" />
+  <xs:complexType name="CreateFileResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FileId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateFileResponse" nillable="true" type="tns:CreateFileResponse" />
+  <xs:complexType name="UpdateFileResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateFileResponse" nillable="true" type="tns:UpdateFileResponse" />
+  <xs:complexType name="DeleteFileResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteFileResponse" nillable="true" type="tns:DeleteFileResponse" />
+  <xs:complexType name="GetHyperlinksBySnippetIdResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SnippetCache.Data.DTO" minOccurs="0" name="Hyperlinks" nillable="true" type="q4:ArrayOfHyperlinkDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetHyperlinksBySnippetIdResponse" nillable="true" type="tns:GetHyperlinksBySnippetIdResponse" />
+  <xs:complexType name="GetHyperlinkByIdResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SnippetCache.Data.DTO" minOccurs="0" name="Hyperlink" nillable="true" type="q5:HyperlinkDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetHyperlinkByIdResponse" nillable="true" type="tns:GetHyperlinkByIdResponse" />
+  <xs:complexType name="GetHyperlinksByUserIdResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SnippetCache.Data.DTO" minOccurs="0" name="Hyperlinks" nillable="true" type="q6:ArrayOfHyperlinkDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetHyperlinksByUserIdResponse" nillable="true" type="tns:GetHyperlinksByUserIdResponse" />
+  <xs:complexType name="CreateHyperlinkResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HyperlinkId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateHyperlinkResponse" nillable="true" type="tns:CreateHyperlinkResponse" />
+  <xs:complexType name="UpdateHyperlinkResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateHyperlinkResponse" nillable="true" type="tns:UpdateHyperlinkResponse" />
+  <xs:complexType name="DeleteHyperlinkResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteHyperlinkResponse" nillable="true" type="tns:DeleteHyperlinkResponse" />
+  <xs:complexType name="GetPagedSnippetListResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SnippetCache.Data.DTO" name="Snippets" nillable="true" type="q7:ArrayOfSnippetDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetPagedSnippetListResponse" nillable="true" type="tns:GetPagedSnippetListResponse" />
+  <xs:complexType name="GetSnippetByIdResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SnippetCache.Data.DTO" name="Snippet" nillable="true" type="q8:SnippetDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetSnippetByIdResponse" nillable="true" type="tns:GetSnippetByIdResponse" />
+  <xs:complexType name="GetSnippetsByUserIdResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Guid" type="ser:guid" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SnippetCache.Data.DTO" minOccurs="0" name="Snippets" nillable="true" type="q9:ArrayOfSnippetDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetSnippetsByUserIdResponse" nillable="true" type="tns:GetSnippetsByUserIdResponse" />
+  <xs:complexType name="GetSnippetByGuidResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SnippetCache.Data.DTO" name="Snippet" nillable="true" type="q10:SnippetDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetSnippetByGuidResponse" nillable="true" type="tns:GetSnippetByGuidResponse" />
+  <xs:complexType name="CreateSnippetResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SnippetId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateSnippetResponse" nillable="true" type="tns:CreateSnippetResponse" />
+  <xs:complexType name="UpdateSnippetResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Snippet" nillable="true" type="xs:anyType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateSnippetResponse" nillable="true" type="tns:UpdateSnippetResponse" />
+  <xs:complexType name="DeleteSnippetResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteSnippetResponse" nillable="true" type="tns:DeleteSnippetResponse" />
+  <xs:complexType name="GetSnippetsByTitleResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SnippetCache.Data.DTO" minOccurs="0" name="Snippets" nillable="true" type="q11:ArrayOfSnippetDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetSnippetsByTitleResponse" nillable="true" type="tns:GetSnippetsByTitleResponse" />
+  <xs:complexType name="GetSnippetsByDescriptionResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SnippetCache.Data.DTO" minOccurs="0" name="Snippets" nillable="true" type="q12:ArrayOfSnippetDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetSnippetsByDescriptionResponse" nillable="true" type="tns:GetSnippetsByDescriptionResponse" />
+  <xs:complexType name="GetSnippetsByDataResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SnippetCache.Data.DTO" minOccurs="0" name="Snippets" nillable="true" type="q13:ArrayOfSnippetDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetSnippetsByDataResponse" nillable="true" type="tns:GetSnippetsByDataResponse" />
+  <xs:complexType name="GetAllLanguagesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element name="Languages" nillable="true" type="tns:ArrayOfLanguageQuickInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAllLanguagesResponse" nillable="true" type="tns:GetAllLanguagesResponse" />
+  <xs:complexType name="ArrayOfLanguageQuickInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LanguageQuickInfo" nillable="true" type="tns:LanguageQuickInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLanguageQuickInfo" nillable="true" type="tns:ArrayOfLanguageQuickInfo" />
+  <xs:complexType name="LanguageQuickInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element name="Id" type="xs:int" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LanguageQuickInfo" nillable="true" type="tns:LanguageQuickInfo" />
+  <xs:complexType name="GetLanguageByIdResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element name="Id" type="xs:int" />
+          <xs:element name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetLanguageByIdResponse" nillable="true" type="tns:GetLanguageByIdResponse" />
+  <xs:complexType name="GetLanguageByNameResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Language" nillable="true" type="tns:LanguageQuickInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetLanguageByNameResponse" nillable="true" type="tns:GetLanguageByNameResponse" />
+  <xs:complexType name="CreateNewLanguageResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateNewLanguageResponse" nillable="true" type="tns:CreateNewLanguageResponse" />
+  <xs:complexType name="UpdateLanguageResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateLanguageResponse" nillable="true" type="tns:UpdateLanguageResponse" />
+  <xs:complexType name="DeleteLanguageResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteLanguageResponse" nillable="true" type="tns:DeleteLanguageResponse" />
+  <xs:complexType name="GetAllUsersResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Users" nillable="true" type="tns:ArrayOfUserQuickInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAllUsersResponse" nillable="true" type="tns:GetAllUsersResponse" />
+  <xs:complexType name="ArrayOfUserQuickInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserQuickInfo" nillable="true" type="tns:UserQuickInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserQuickInfo" nillable="true" type="tns:ArrayOfUserQuickInfo" />
+  <xs:complexType name="UserQuickInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FormsAuthId" type="ser:guid" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LoginName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserQuickInfo" nillable="true" type="tns:UserQuickInfo" />
+  <xs:complexType name="GetUserByIdResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AvatarImage" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FormsAuthId" type="ser:guid" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="LoginName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetUserByIdResponse" nillable="true" type="tns:GetUserByIdResponse" />
+  <xs:complexType name="GetUserByNameResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AvatarImage" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FormsAuthId" type="ser:guid" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="LoginName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetUserByNameResponse" nillable="true" type="tns:GetUserByNameResponse" />
+  <xs:complexType name="CreateNewUserResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AvatarImage" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FormsAuthId" type="ser:guid" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="LoginName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateNewUserResponse" nillable="true" type="tns:CreateNewUserResponse" />
+  <xs:complexType name="UpdateUserResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateUserResponse" nillable="true" type="tns:UpdateUserResponse" />
+  <xs:complexType name="DeleteUserResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteUserResponse" nillable="true" type="tns:DeleteUserResponse" />
+  <xs:complexType name="GetAllNotificationTypesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="NotificationTypes" nillable="true" type="q14:ArrayOfNotificationTypeQuickInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAllNotificationTypesResponse" nillable="true" type="tns:GetAllNotificationTypesResponse" />
+  <xs:complexType name="GetNotificationTypesByIdResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetNotificationTypesByIdResponse" nillable="true" type="tns:GetNotificationTypesByIdResponse" />
+  <xs:complexType name="GetNotificationTypesByNameResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetNotificationTypesByNameResponse" nillable="true" type="tns:GetNotificationTypesByNameResponse" />
+  <xs:complexType name="CreateNewNotificationTypesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateNewNotificationTypesResponse" nillable="true" type="tns:CreateNewNotificationTypesResponse" />
+  <xs:complexType name="UpdateNotificationTypesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateNotificationTypesResponse" nillable="true" type="tns:UpdateNotificationTypesResponse" />
+  <xs:complexType name="DeleteNotificationTypesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteNotificationTypesResponse" nillable="true" type="tns:DeleteNotificationTypesResponse" />
+  <xs:complexType name="GetAllNotificationsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Notifications" nillable="true" type="tns:ArrayOfNotificationQuickInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAllNotificationsResponse" nillable="true" type="tns:GetAllNotificationsResponse" />
+  <xs:complexType name="ArrayOfNotificationQuickInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NotificationQuickInfo" nillable="true" type="tns:NotificationQuickInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNotificationQuickInfo" nillable="true" type="tns:ArrayOfNotificationQuickInfo" />
+  <xs:complexType name="NotificationQuickInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NotificationQuickInfo" nillable="true" type="tns:NotificationQuickInfo" />
+  <xs:complexType name="GetNotificationsByIdResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="NotificationTypeId" type="xs:int" />
+          <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserFormsAuthId" type="ser:guid" />
+          <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetNotificationsByIdResponse" nillable="true" type="tns:GetNotificationsByIdResponse" />
+  <xs:complexType name="GetAllNotificationsForUserResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Notifications" nillable="true" type="tns:ArrayOfNotificationQuickInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAllNotificationsForUserResponse" nillable="true" type="tns:GetAllNotificationsForUserResponse" />
+  <xs:complexType name="CreateNewNotificationsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="NotificationTypeId" type="xs:int" />
+          <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserFormsAuthId" type="ser:guid" />
+          <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateNewNotificationsResponse" nillable="true" type="tns:CreateNewNotificationsResponse" />
+  <xs:complexType name="UpdateNotificationsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateNotificationsResponse" nillable="true" type="tns:UpdateNotificationsResponse" />
+  <xs:complexType name="DeleteNotificationsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteNotificationsResponse" nillable="true" type="tns:DeleteNotificationsResponse" />
+  <xs:complexType name="GetAllCommentsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Comments" nillable="true" type="tns:ArrayOfCommentQuickInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAllCommentsResponse" nillable="true" type="tns:GetAllCommentsResponse" />
+  <xs:complexType name="ArrayOfCommentQuickInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CommentQuickInfo" nillable="true" type="tns:CommentQuickInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCommentQuickInfo" nillable="true" type="tns:ArrayOfCommentQuickInfo" />
+  <xs:complexType name="CommentQuickInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataLastModified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommentQuickInfo" nillable="true" type="tns:CommentQuickInfo" />
+  <xs:complexType name="GetAllCommentsForSnippetResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Comments" nillable="true" type="tns:ArrayOfCommentQuickInfo" />
+          <xs:element minOccurs="0" name="SnippetId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAllCommentsForSnippetResponse" nillable="true" type="tns:GetAllCommentsForSnippetResponse" />
+  <xs:complexType name="GetCommentByIdResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DateLastModified" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="SnippetId" type="xs:int" />
+          <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserFormsAuthId" type="ser:guid" />
+          <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCommentByIdResponse" nillable="true" type="tns:GetCommentByIdResponse" />
+</xs:schema>

@@ -1,0 +1,20 @@
+﻿@using SnippetCache.WebUI.Areas.Snippets.Models
+@model IEnumerable<SnippetCache.WebUI.Areas.Snippets.Models.SnippetDetailsModel>
+
+@{
+    ViewBag.Title = "Private Snippets";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Private Snippets</h1>
+
+@if (!Model.Any())
+{
+    <div style="padding-left: 50px;"><h2>You have no private snippets</h2></div>
+}
+@{
+    foreach (SnippetDetailsModel snippetModel in Model)
+    {
+        @Html.Partial("SnippetPreviewTable", snippetModel)
+        ;
+    }
+}

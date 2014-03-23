@@ -1,0 +1,107 @@
+﻿@using System.Web.Optimization
+@using SnippetCache.Data.DTO
+@using SnippetCache.WebUI.Areas.Snippets.Models
+@model SnippetCache.WebUI.Areas.Snippets.Models.SnippetDetailsModel
+@{
+    if (TempData["Message"] != null && !string.IsNullOrEmpty(TempData["Message"].ToString()))
+    {
+        <div>@TempData["Message"]</div>
+    }
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                @Model.Name
+            </th>
+            <th>
+                @Model.Description
+            </th>
+        </tr>
+        <tr>
+            <th>
+                @if (Model.UserAvatar == null)
+                {
+                    @Model.UserName
+                }
+                else
+                {
+                    <img src="@Url.Action("GetUserThumbnailImage", "Home", new {area = string.Empty, userId = Model.UserId, userGuid = Model.UserGuid})" alt="userimage" />
+                    <div>@Html.ActionLink(Model.UserName, "Profile", "User", new {area = "Users", userId = Model.UserId, userGuid = Model.UserGuid}, null)</div>
+                }
+            </th>
+            <th>
+                @Html.ActionLink(Model.SnippetUrl, "Snippet", "Public", new {guid = Model.SnippetUrl}, null)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="2" rowspan="150">
+                <div id="snippet-detail" class="snippet-detail">@Model.Data</div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div">
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <b>Reference Links</b>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Hyperlinks != null && Model.Hyperlinks.Any())
+            {
+                foreach (var hyperlinkDTO in Model.Hyperlinks)
+                {
+                    <tr>
+                        <th><a href="@hyperlinkDTO.Uri">@hyperlinkDTO.Uri</a></th>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr><th>No additional links</th></tr>
+            }
+        </tbody>
+    </table>
+    </div>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <b>Reference Files</b>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Files != null && Model.Files.Any())
+                {
+                    foreach (NamedFileWithDescription fileDTO in Model.Files)
+                    {
+                        <tr>
+                            <th>@Html.ActionLink(fileDTO.Name, "GetFile", "FileOperations", new { area = "Files", userId = Model.UserId, userGuid = Model.UserGuid, fileId = fileDTO.File.Id }, null)</th>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr><th>No additional files</th></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        var editor = ace.edit("snippet-detail");
+        editor.setTheme("ace/theme/eclipse");
+        editor.getSession().setUseWorker(false);
+        editor.getSession().setMode("ace/mode/javascript");
+    </script>

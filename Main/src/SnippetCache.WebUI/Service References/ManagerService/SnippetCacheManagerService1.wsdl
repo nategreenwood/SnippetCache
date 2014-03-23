@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SnippetCacheManagerService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://nategreenwood.com/services/snippetcache/ManagersWcf/SnippetCacheManagerService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://nategreenwood.com/services/snippetcache/ManagersWcf/SnippetCacheManagerService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://nategreenwood.com/services/snippetcache/ManagersWcf/SnippetCacheManagerService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SnippetCache.Data.DTO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISnippetCacheManagerService_CreateSnippet_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSnippet" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_CreateSnippet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSnippetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_FindSnippetsByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindSnippetsByUser" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_FindSnippetsByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindSnippetsByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_FindSnippetsByUserPaged_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindSnippetsByUserPaged" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_FindSnippetsByUserPaged_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindSnippetsByUserPagedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_FindSnippets_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindSnippets" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_FindSnippets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindSnippetsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_FindSnippetsPaged_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindSnippetsPaged" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_FindSnippetsPaged_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindSnippetsPagedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_GetSnippets_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSnippets" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_GetSnippets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSnippetsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_GetAllPublicSnippets_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPublicSnippets" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_GetAllPublicSnippets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPublicSnippetsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_GetSnippet_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSnippet" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_GetSnippet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSnippetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_GetSnippetsByPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSnippetsByPage" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_GetSnippetsByPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSnippetsByPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_GetPrivateSnippets_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrivateSnippets" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_GetPrivateSnippets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrivateSnippetsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_GetLanguagesForDisplay_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLanguagesForDisplay" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_GetLanguagesForDisplay_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLanguagesForDisplayResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_GetTotalSnippetCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalSnippetCount" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_GetTotalSnippetCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalSnippetCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_GetHyperlinksForSnippet_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHyperlinksForSnippet" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_GetHyperlinksForSnippet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHyperlinksForSnippetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_GetFilesForSnippet_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFilesForSnippet" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_GetFilesForSnippet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFilesForSnippetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_UserDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserDetails" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_UserDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_UpdateUserDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserDetails" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_UpdateUserDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_UnreadUserNotification_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnreadUserNotification" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_UnreadUserNotification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnreadUserNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_CreateNewUserNotification_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewUserNotification" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_CreateNewUserNotification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewUserNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_RemoveUserNotification_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUserNotification" />
+  </wsdl:message>
+  <wsdl:message name="ISnippetCacheManagerService_RemoveUserNotification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUserNotificationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISnippetCacheManagerService">
+    <wsdl:operation name="CreateSnippet">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/CreateSnippet" message="tns:ISnippetCacheManagerService_CreateSnippet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/CreateSnippetResponse" message="tns:ISnippetCacheManagerService_CreateSnippet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindSnippetsByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/FindSnippetsByUser" message="tns:ISnippetCacheManagerService_FindSnippetsByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/FindSnippetsByUserResponse" message="tns:ISnippetCacheManagerService_FindSnippetsByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindSnippetsByUserPaged">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/FindSnippetsByUserPaged" message="tns:ISnippetCacheManagerService_FindSnippetsByUserPaged_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/FindSnippetsByUserPagedResponse" message="tns:ISnippetCacheManagerService_FindSnippetsByUserPaged_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindSnippets">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/FindSnippets" message="tns:ISnippetCacheManagerService_FindSnippets_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/FindSnippetsResponse" message="tns:ISnippetCacheManagerService_FindSnippets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindSnippetsPaged">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/FindSnippetsPaged" message="tns:ISnippetCacheManagerService_FindSnippetsPaged_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/FindSnippetsPagedResponse" message="tns:ISnippetCacheManagerService_FindSnippetsPaged_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSnippets">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/GetSnippets" message="tns:ISnippetCacheManagerService_GetSnippets_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/GetSnippetsResponse" message="tns:ISnippetCacheManagerService_GetSnippets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPublicSnippets">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/GetAllPublicSnippets" message="tns:ISnippetCacheManagerService_GetAllPublicSnippets_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/GetAllPublicSnippetsResponse" message="tns:ISnippetCacheManagerService_GetAllPublicSnippets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSnippet">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/GetSnippet" message="tns:ISnippetCacheManagerService_GetSnippet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/GetSnippetResponse" message="tns:ISnippetCacheManagerService_GetSnippet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSnippetsByPage">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/GetSnippetsByPage" message="tns:ISnippetCacheManagerService_GetSnippetsByPage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/GetSnippetsByPageResponse" message="tns:ISnippetCacheManagerService_GetSnippetsByPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrivateSnippets">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/GetPrivateSnippets" message="tns:ISnippetCacheManagerService_GetPrivateSnippets_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/GetPrivateSnippetsResponse" message="tns:ISnippetCacheManagerService_GetPrivateSnippets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguagesForDisplay">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/GetLanguagesForDisplay" message="tns:ISnippetCacheManagerService_GetLanguagesForDisplay_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/GetLanguagesForDisplayResponse" message="tns:ISnippetCacheManagerService_GetLanguagesForDisplay_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalSnippetCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/GetTotalSnippetCount" message="tns:ISnippetCacheManagerService_GetTotalSnippetCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/GetTotalSnippetCountResponse" message="tns:ISnippetCacheManagerService_GetTotalSnippetCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHyperlinksForSnippet">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/GetHyperlinksForSnippet" message="tns:ISnippetCacheManagerService_GetHyperlinksForSnippet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/GetHyperlinksForSnippetResponse" message="tns:ISnippetCacheManagerService_GetHyperlinksForSnippet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFilesForSnippet">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/GetFilesForSnippet" message="tns:ISnippetCacheManagerService_GetFilesForSnippet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/GetFilesForSnippetResponse" message="tns:ISnippetCacheManagerService_GetFilesForSnippet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/UserDetails" message="tns:ISnippetCacheManagerService_UserDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/UserDetailsResponse" message="tns:ISnippetCacheManagerService_UserDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/UpdateUserDetails" message="tns:ISnippetCacheManagerService_UpdateUserDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/UpdateUserDetailsResponse" message="tns:ISnippetCacheManagerService_UpdateUserDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnreadUserNotification">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/UnreadUserNotification" message="tns:ISnippetCacheManagerService_UnreadUserNotification_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/UnreadUserNotificationResponse" message="tns:ISnippetCacheManagerService_UnreadUserNotification_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewUserNotification">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/CreateNewUserNotification" message="tns:ISnippetCacheManagerService_CreateNewUserNotification_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/CreateNewUserNotificationResponse" message="tns:ISnippetCacheManagerService_CreateNewUserNotification_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserNotification">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/RemoveUserNotification" message="tns:ISnippetCacheManagerService_RemoveUserNotification_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISnippetCacheManagerService/RemoveUserNotificationResponse" message="tns:ISnippetCacheManagerService_RemoveUserNotification_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISnippetCacheManagerService" type="tns:ISnippetCacheManagerService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateSnippet">
+      <soap:operation soapAction="http://tempuri.org/ISnippetCacheManagerService/CreateSnippet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindSnippetsByUser">
+      <soap:operation soapAction="http://tempuri.org/ISnippetCacheManagerService/FindSnippetsByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindSnippetsByUserPaged">
+      <soap:operation soapAction="http://tempuri.org/ISnippetCacheManagerService/FindSnippetsByUserPaged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindSnippets">
+      <soap:operation soapAction="http://tempuri.org/ISnippetCacheManagerService/FindSnippets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindSnippetsPaged">
+      <soap:operation soapAction="http://tempuri.org/ISnippetCacheManagerService/FindSnippetsPaged" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSnippets">
+      <soap:operation soapAction="http://tempuri.org/ISnippetCacheManagerService/GetSnippets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPublicSnippets">
+      <soap:operation soapAction="http://tempuri.org/ISnippetCacheManagerService/GetAllPublicSnippets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSnippet">
+      <soap:operation soapAction="http://tempuri.org/ISnippetCacheManagerService/GetSnippet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSnippetsByPage">
+      <soap:operation soapAction="http://tempuri.org/ISnippetCacheManagerService/GetSnippetsByPage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrivateSnippets">
+      <soap:operation soapAction="http://tempuri.org/ISnippetCacheManagerService/GetPrivateSnippets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguagesForDisplay">
+      <soap:operation soapAction="http://tempuri.org/ISnippetCacheManagerService/GetLanguagesForDisplay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalSnippetCount">
+      <soap:operation soapAction="http://tempuri.org/ISnippetCacheManagerService/GetTotalSnippetCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHyperlinksForSnippet">
+      <soap:operation soapAction="http://tempuri.org/ISnippetCacheManagerService/GetHyperlinksForSnippet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFilesForSnippet">
+      <soap:operation soapAction="http://tempuri.org/ISnippetCacheManagerService/GetFilesForSnippet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserDetails">
+      <soap:operation soapAction="http://tempuri.org/ISnippetCacheManagerService/UserDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserDetails">
+      <soap:operation soapAction="http://tempuri.org/ISnippetCacheManagerService/UpdateUserDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnreadUserNotification">
+      <soap:operation soapAction="http://tempuri.org/ISnippetCacheManagerService/UnreadUserNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewUserNotification">
+      <soap:operation soapAction="http://tempuri.org/ISnippetCacheManagerService/CreateNewUserNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserNotification">
+      <soap:operation soapAction="http://tempuri.org/ISnippetCacheManagerService/RemoveUserNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SnippetCacheManagerService">
+    <wsdl:port name="BasicHttpBinding_ISnippetCacheManagerService" binding="tns:BasicHttpBinding_ISnippetCacheManagerService">
+      <soap:address location="http://nategreenwood.com/services/snippetcache/ManagersWcf/SnippetCacheManagerService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,54 @@
+﻿@model SnippetCache.WebUI.Areas.Snippets.Models.CreateSnippetModelPrivate
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Create New Private Snippet</h1>
+<div id="partial-view-result-area">
+    @Html.ValidationSummary(true)
+    @Html.Partial("_CreatePrivateSnippetForm", Model)
+</div>
+
+<script type="text/javascript">
+    $("#create-snippet-submit").click(function (evt) {
+        evt.preventDefault();
+        var o = $("#snippet-editor");
+        var datastring = null;
+        if (o) {
+            datastring = o[0].env.document;
+        }
+        $.ajax({
+            url: "Create",
+            type: "POST",
+            data: {
+                Data: datastring.toString(),
+                Name: $("#Name").val(),
+                Description: $("#Description").val(),
+                IsPublic: $("#IsPublic").val(),
+                LanguageId: $("#languages").val()
+            },
+            success: function (data) {
+                $("#partial-view-result-area").html(data);
+
+                var csMode = require("ace/mode/csharp").Mode;
+                var mode = new csMode();
+                var edit = null;
+                $("#snippet-detail-editor").each(function (index, ctrl) {
+                    edit = ace.edit(ctrl);
+                    edit.getSession().setMode(mode);
+                });
+                $("[id*=preview-editor]").each(function (index, ctrl) {
+                    edit = ace.edit(ctrl);
+                    edit.getSession().setMode(mode);
+                });
+                $("#snippet-editor").each(function (index, ctrl) {
+                    edit = ace.edit(ctrl);
+                    edit.getSession().setMode(mode);
+                });
+            },
+            error: function (err) {
+                alert(err.val());
+            }
+        });
+    });
+</script>

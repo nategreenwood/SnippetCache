@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+    <meta name="keywords" content="Nate, Greenwood, nategreenwood, nate greenwood, snippet, snippetcache, cache, snippetcache.net, .net, code, source code, source snippets, source data" />
+    <meta name="description" content="A site to store your code snippets. Keep website links and data files associated with your snippet saved right alongside, always there together for future use. Sign in to create private snippets which only you can see." />
+    @System.Web.Optimization.Styles.Render("~/Content/Site.css")
+    @System.Web.Optimization.Scripts.Render("~/Scripts/ace/ace.js")
+    @System.Web.Optimization.Scripts.Render("~/Scripts/jquery-2.0.2.js")
+    @System.Web.Optimization.Scripts.Render("~/Scripts/jquery-ui-1.10.3.min.js")
+    @System.Web.Optimization.Scripts.Render("~/Scripts/jquery.wijmo-open.all.3.20131.7.js")
+    @System.Web.Optimization.Scripts.Render("~/Scripts/jquery.wijmo-complete.all.2.4.1.min.js")
+    @System.Web.Optimization.Styles.Render("~/Content/jquery.wijmo-open.3.20131.7.css")
+    @System.Web.Optimization.Styles.Render("~/Content/jquery.wijmo-complete.2.4.1.css")
+</head>
+<body>
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title">@Html.ActionLink("snippetcache.net", "All", "Public", new{ area = "Snippets" }, null)</p>                
+                @Html.Partial("_MenuPartial")
+            </div>
+            <div class="float-right">
+                <section id="login">
+                    @Html.Partial("_LogOnPartial")
+                </section>
+                @Html.Partial("_SearchControlPartial")
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year - snippetcache.net | nate greenwood</p>
+            </div>
+        </div>
+    </footer>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

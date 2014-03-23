@@ -1,0 +1,50 @@
+﻿@model SnippetCache.WebUI.Areas.Snippets.Models.CreateSnippetModel
+<div id="upload" style="width: 300px"></div>
+<div id="progressbar"></div>
+
+<script id="script1" type="text/javascript">
+    var supportXhr;
+    $(document).ready(function ($) {
+        var progressbar = $("#progressbar");
+        var upload = $("#upload").wijupload({
+            change: function (e, data) {
+            },
+            upload: function (e, data) {
+            },
+            totalUpload: function () {
+                progressbar.show();
+            },
+            complete: function (e, data) {
+                var uf = $("#uploadedFiles");
+                var origText = uf.val();
+                var newText = data[0].files[0].name;
+                uf.text(origText + newText);
+            },
+            totalComplete: function (e, data) {
+
+                progressbar.fadeOut(1500, function () {
+                    if (supportXhr) {
+                        $("#progressbar").wijprogressbar("option", "value", 0);
+                    }
+                });
+                if (data.e.currentTarget.status != 200) {
+                    alert("Upload failed!");
+                }
+            },
+            totalProgress: function (e, data) {
+                if (supportXhr) {
+                    $("#progressbar").wijprogressbar("option", "maxValue", data.total);
+                    $("#progressbar").wijprogressbar("option", "value", data.loaded);
+                }
+            },
+            action: "UploadPublicFiles"
+        });
+        supportXhr = $("#upload").wijupload("supportXhr");
+        if (supportXhr) {
+            progressbar.wijprogressbar({ value: 0 });
+        } else {
+            progressbar.addClass("Loading");
+        }
+        progressbar.hide();
+    });
+</script>

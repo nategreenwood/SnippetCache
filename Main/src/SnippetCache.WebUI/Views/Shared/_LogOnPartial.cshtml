@@ -1,0 +1,39 @@
+﻿@using SnippetCache.WebUI.Infrastructure.AccountData
+@{
+    int userId = 0;
+    Guid userGuid = Guid.Empty;
+    if (User != null)
+    {
+        if (User.Identity.IsAuthenticated)
+        {
+            var identity = ((CustomIdentity) User.Identity);
+            userId = identity.UserId;
+            userGuid = identity.UserGuid;
+        }
+    }
+}
+
+@if (Request.IsAuthenticated)
+{
+    <div>
+        Welcome <strong>@if (User != null)
+                        {
+                            @User.Identity.Name
+                        }
+                </strong> 
+                | @Html.Action("UserMessageCount", "Message", new {area = "Messages", userId, userGuid}) 
+                | @Html.ActionLink("Profile", "Profile", "User", new {area = "Users", userId, userGuid}, null) 
+                | @Html.ActionLink("Log Off", "LogOff", "Account", new {area = string.Empty}, null) 
+    </div>
+}
+else
+{
+    <div>
+        @Html.ActionLink("Log On", "LogOn", "Account", new {area = string.Empty}, new {id = "login-button"})
+        |
+        @Html.ActionLink("Register", "Register", "Account", new {area = string.Empty}, new {id = "register"})
+    </div>
+}
+@section Scripts {
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,692 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- EF Runtime content -->
+    <edmx:Runtime>
+        <!-- SSDL content -->
+        <edmx:StorageModels>
+        <Schema Namespace="SnippetCacheEntities.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="SnippetCacheEntitiesStoreContainer">
+    <EntitySet Name="Comments" EntityType="SnippetCacheEntities.Store.Comments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Files" EntityType="SnippetCacheEntities.Store.Files" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Hyperlinks" EntityType="SnippetCacheEntities.Store.Hyperlinks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Languages" EntityType="SnippetCacheEntities.Store.Languages" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Notifications" EntityType="SnippetCacheEntities.Store.Notifications" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NotificationTypes" EntityType="SnippetCacheEntities.Store.NotificationTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Snippets" EntityType="SnippetCacheEntities.Store.Snippets" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="SnippetCacheEntities.Store.Users" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_SnippetComment" Association="SnippetCacheEntities.Store.FK_SnippetComment">
+      <End Role="Snippet" EntitySet="Snippets" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserComment" Association="SnippetCacheEntities.Store.FK_UserComment">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SnippetFile" Association="SnippetCacheEntities.Store.FK_SnippetFile">
+      <End Role="Snippet" EntitySet="Snippets" />
+      <End Role="File" EntitySet="Files" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SnippetHyperlink" Association="SnippetCacheEntities.Store.FK_SnippetHyperlink">
+      <End Role="Snippet" EntitySet="Snippets" />
+      <End Role="Hyperlink" EntitySet="Hyperlinks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LanguageSnippet" Association="SnippetCacheEntities.Store.FK_LanguageSnippet">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="Snippet" EntitySet="Snippets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotificationTypeNotification" Association="SnippetCacheEntities.Store.FK_NotificationTypeNotification">
+      <End Role="NotificationType" EntitySet="NotificationTypes" />
+      <End Role="Notification" EntitySet="Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserNotification" Association="SnippetCacheEntities.Store.FK_UserNotification">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Notification" EntitySet="Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserSnippet" Association="SnippetCacheEntities.Store.FK_UserSnippet">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Snippet" EntitySet="Snippets" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Comments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastModified" Type="datetime" Nullable="false" />
+    <Property Name="Snippet_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="User_FormsAuthId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Files">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Data" Type="varbinary(max)" Nullable="false" />
+    <Property Name="LastModified" Type="datetime" Nullable="false" />
+    <Property Name="Snippet_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Hyperlinks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Uri" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="LastModified" Type="datetime" Nullable="false" />
+    <Property Name="Snippet_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Languages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Notifications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NotificationType_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="User_FormsAuthId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NotificationTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Snippets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PreviewData" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Data" Type="varbinary(max)" Nullable="false" />
+    <Property Name="LastModified" Type="datetime" Nullable="false" />
+    <Property Name="IsPublic" Type="bit" Nullable="false" />
+    <Property Name="Language_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="User_FormsAuthId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="FormsAuthId" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FormsAuthId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LoginName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AvatarImage" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <Association Name="FK_SnippetComment">
+    <End Role="Snippet" Type="SnippetCacheEntities.Store.Snippets" Multiplicity="1" />
+    <End Role="Comment" Type="SnippetCacheEntities.Store.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Snippet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="Snippet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserComment">
+    <End Role="User" Type="SnippetCacheEntities.Store.Users" Multiplicity="1" />
+    <End Role="Comment" Type="SnippetCacheEntities.Store.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+        <PropertyRef Name="FormsAuthId" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="User_Id" />
+        <PropertyRef Name="User_FormsAuthId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SnippetFile">
+    <End Role="Snippet" Type="SnippetCacheEntities.Store.Snippets" Multiplicity="1" />
+    <End Role="File" Type="SnippetCacheEntities.Store.Files" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Snippet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="File">
+        <PropertyRef Name="Snippet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SnippetHyperlink">
+    <End Role="Snippet" Type="SnippetCacheEntities.Store.Snippets" Multiplicity="1" />
+    <End Role="Hyperlink" Type="SnippetCacheEntities.Store.Hyperlinks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Snippet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hyperlink">
+        <PropertyRef Name="Snippet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LanguageSnippet">
+    <End Role="Language" Type="SnippetCacheEntities.Store.Languages" Multiplicity="1" />
+    <End Role="Snippet" Type="SnippetCacheEntities.Store.Snippets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Snippet">
+        <PropertyRef Name="Language_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotificationTypeNotification">
+    <End Role="NotificationType" Type="SnippetCacheEntities.Store.NotificationTypes" Multiplicity="1" />
+    <End Role="Notification" Type="SnippetCacheEntities.Store.Notifications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NotificationType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="NotificationType_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserNotification">
+    <End Role="User" Type="SnippetCacheEntities.Store.Users" Multiplicity="1" />
+    <End Role="Notification" Type="SnippetCacheEntities.Store.Notifications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+        <PropertyRef Name="FormsAuthId" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="User_Id" />
+        <PropertyRef Name="User_FormsAuthId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserSnippet">
+    <End Role="User" Type="SnippetCacheEntities.Store.Users" Multiplicity="1" />
+    <End Role="Snippet" Type="SnippetCacheEntities.Store.Snippets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+        <PropertyRef Name="FormsAuthId" />
+      </Principal>
+      <Dependent Role="Snippet">
+        <PropertyRef Name="User_Id" />
+        <PropertyRef Name="User_FormsAuthId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+        <!-- CSDL content -->
+        <edmx:ConceptualModels>
+            <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm"
+                    xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration"
+                    xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="SnippetCacheEntities"
+                    Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+                <EntityContainer Name="SnippetCacheEntitiesContainer" annotation:LazyLoadingEnabled="true">
+                    <EntitySet Name="Comments" EntityType="SnippetCacheEntities.Comment" />
+                    <EntitySet Name="Files" EntityType="SnippetCacheEntities.File" />
+                    <EntitySet Name="Hyperlinks" EntityType="SnippetCacheEntities.Hyperlink" />
+                    <EntitySet Name="Languages" EntityType="SnippetCacheEntities.Language" />
+                    <EntitySet Name="Notifications" EntityType="SnippetCacheEntities.Notification" />
+                    <EntitySet Name="NotificationTypes" EntityType="SnippetCacheEntities.NotificationType" />
+                    <EntitySet Name="Snippets" EntityType="SnippetCacheEntities.Snippet" />
+                    <EntitySet Name="Users" EntityType="SnippetCacheEntities.User" />
+                    <AssociationSet Name="FK_SnippetComment" Association="SnippetCacheEntities.FK_SnippetComment">
+                        <End Role="Snippet" EntitySet="Snippets" />
+                        <End Role="Comment" EntitySet="Comments" />
+                    </AssociationSet>
+                    <AssociationSet Name="FK_UserComment" Association="SnippetCacheEntities.FK_UserComment">
+                        <End Role="User" EntitySet="Users" />
+                        <End Role="Comment" EntitySet="Comments" />
+                    </AssociationSet>
+                    <AssociationSet Name="FK_SnippetFile" Association="SnippetCacheEntities.FK_SnippetFile">
+                        <End Role="Snippet" EntitySet="Snippets" />
+                        <End Role="File" EntitySet="Files" />
+                    </AssociationSet>
+                    <AssociationSet Name="FK_SnippetHyperlink" Association="SnippetCacheEntities.FK_SnippetHyperlink">
+                        <End Role="Snippet" EntitySet="Snippets" />
+                        <End Role="Hyperlink" EntitySet="Hyperlinks" />
+                    </AssociationSet>
+                    <AssociationSet Name="FK_LanguageSnippet" Association="SnippetCacheEntities.FK_LanguageSnippet">
+                        <End Role="Language" EntitySet="Languages" />
+                        <End Role="Snippet" EntitySet="Snippets" />
+                    </AssociationSet>
+                    <AssociationSet Name="FK_NotificationTypeNotification"
+                                    Association="SnippetCacheEntities.FK_NotificationTypeNotification">
+                        <End Role="NotificationType" EntitySet="NotificationTypes" />
+                        <End Role="Notification" EntitySet="Notifications" />
+                    </AssociationSet>
+                    <AssociationSet Name="FK_UserNotification" Association="SnippetCacheEntities.FK_UserNotification">
+                        <End Role="User" EntitySet="Users" />
+                        <End Role="Notification" EntitySet="Notifications" />
+                    </AssociationSet>
+                    <AssociationSet Name="FK_UserSnippet" Association="SnippetCacheEntities.FK_UserSnippet">
+                        <End Role="User" EntitySet="Users" />
+                        <End Role="Snippet" EntitySet="Snippets" />
+                    </AssociationSet>
+                </EntityContainer>
+                <EntityType Name="Comment">
+                    <Key>
+                        <PropertyRef Name="Id" />
+                    </Key>
+                    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+                    <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+                    <Property Type="DateTime" Name="LastModified" Nullable="false" />
+                    <Property Type="Int32" Name="Snippet_Id" Nullable="false" />
+                    <Property Type="Int32" Name="User_Id" Nullable="false" />
+                    <Property Type="Guid" Name="User_FormsAuthId" Nullable="false" />
+                    <NavigationProperty Name="Snippet" Relationship="SnippetCacheEntities.FK_SnippetComment" FromRole="Comment"
+                                        ToRole="Snippet" />
+                    <NavigationProperty Name="User" Relationship="SnippetCacheEntities.FK_UserComment" FromRole="Comment"
+                                        ToRole="User" />
+                </EntityType>
+                <EntityType Name="File">
+                    <Key>
+                        <PropertyRef Name="Id" />
+                    </Key>
+                    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+                    <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+                    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+                    <Property Type="Binary" Name="Data" Nullable="false" MaxLength="Max" FixedLength="false" />
+                    <Property Type="DateTime" Name="LastModified" Nullable="false" />
+                    <Property Type="Int32" Name="Snippet_Id" Nullable="false" />
+                    <NavigationProperty Name="Snippet" Relationship="SnippetCacheEntities.FK_SnippetFile" FromRole="File"
+                                        ToRole="Snippet" />
+                </EntityType>
+                <EntityType Name="Hyperlink">
+                    <Key>
+                        <PropertyRef Name="Id" />
+                    </Key>
+                    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+                    <Property Type="String" Name="Uri" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+                    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+                    <Property Type="DateTime" Name="LastModified" Nullable="false" />
+                    <Property Type="Int32" Name="Snippet_Id" Nullable="false" />
+                    <NavigationProperty Name="Snippet" Relationship="SnippetCacheEntities.FK_SnippetHyperlink"
+                                        FromRole="Hyperlink" ToRole="Snippet" />
+                </EntityType>
+                <EntityType Name="Language">
+                    <Key>
+                        <PropertyRef Name="Id" />
+                    </Key>
+                    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+                    <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+                    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+                    <NavigationProperty Name="Snippets" Relationship="SnippetCacheEntities.FK_LanguageSnippet"
+                                        FromRole="Language" ToRole="Snippet" />
+                </EntityType>
+                <EntityType Name="Notification">
+                    <Key>
+                        <PropertyRef Name="Id" />
+                    </Key>
+                    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+                    <Property Type="DateTime" Name="DateCreated" Nullable="false" />
+                    <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+                    <Property Type="Int32" Name="NotificationType_Id" Nullable="false" />
+                    <Property Type="Int32" Name="User_Id" Nullable="false" />
+                    <Property Type="Guid" Name="User_FormsAuthId" Nullable="false" />
+                    <NavigationProperty Name="NotificationType"
+                                        Relationship="SnippetCacheEntities.FK_NotificationTypeNotification" FromRole="Notification" ToRole="NotificationType" />
+                    <NavigationProperty Name="User" Relationship="SnippetCacheEntities.FK_UserNotification"
+                                        FromRole="Notification" ToRole="User" />
+                </EntityType>
+                <EntityType Name="NotificationType">
+                    <Key>
+                        <PropertyRef Name="Id" />
+                    </Key>
+                    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+                    <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+                    <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false"
+                              Unicode="true" />
+                    <NavigationProperty Name="Notifications" Relationship="SnippetCacheEntities.FK_NotificationTypeNotification"
+                                        FromRole="NotificationType" ToRole="Notification" />
+                </EntityType>
+                <EntityType Name="Snippet">
+                    <Key>
+                        <PropertyRef Name="Id" />
+                    </Key>
+                    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+                    <Property Type="Guid" Name="Guid" Nullable="false" />
+                    <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+                    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+                    <Property Type="Binary" Name="PreviewData" Nullable="false" MaxLength="Max" FixedLength="false" />
+                    <Property Type="Binary" Name="Data" Nullable="false" MaxLength="Max" FixedLength="false" />
+                    <Property Type="DateTime" Name="LastModified" Nullable="false" annotation:StoreGeneratedPattern="None" />
+                    <Property Type="Boolean" Name="IsPublic" Nullable="false" />
+                    <Property Type="Int32" Name="Language_Id" Nullable="false" />
+                    <Property Type="Int32" Name="User_Id" Nullable="false" />
+                    <Property Type="Guid" Name="User_FormsAuthId" Nullable="false" />
+                    <NavigationProperty Name="Comments" Relationship="SnippetCacheEntities.FK_SnippetComment" FromRole="Snippet"
+                                        ToRole="Comment" />
+                    <NavigationProperty Name="Files" Relationship="SnippetCacheEntities.FK_SnippetFile" FromRole="Snippet"
+                                        ToRole="File" />
+                    <NavigationProperty Name="Hyperlinks" Relationship="SnippetCacheEntities.FK_SnippetHyperlink"
+                                        FromRole="Snippet" ToRole="Hyperlink" />
+                    <NavigationProperty Name="Language" Relationship="SnippetCacheEntities.FK_LanguageSnippet" FromRole="Snippet"
+                                        ToRole="Language" />
+                    <NavigationProperty Name="User" Relationship="SnippetCacheEntities.FK_UserSnippet" FromRole="Snippet"
+                                        ToRole="User" />
+                </EntityType>
+                <EntityType Name="User">
+                    <Key>
+                        <PropertyRef Name="Id" />
+                        <PropertyRef Name="FormsAuthId" />
+                    </Key>
+                    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+                    <Property Type="Guid" Name="FormsAuthId" Nullable="false" />
+                    <Property Type="String" Name="LoginName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+                    <Property Type="String" Name="Email" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+                    <Property Type="Binary" Name="AvatarImage" MaxLength="Max" FixedLength="false" />
+                    <NavigationProperty Name="Comments" Relationship="SnippetCacheEntities.FK_UserComment" FromRole="User"
+                                        ToRole="Comment" />
+                    <NavigationProperty Name="Notifications" Relationship="SnippetCacheEntities.FK_UserNotification"
+                                        FromRole="User" ToRole="Notification" />
+                    <NavigationProperty Name="Snippets" Relationship="SnippetCacheEntities.FK_UserSnippet" FromRole="User"
+                                        ToRole="Snippet" />
+                </EntityType>
+                <Association Name="FK_SnippetComment">
+                    <End Type="SnippetCacheEntities.Snippet" Role="Snippet" Multiplicity="1" />
+                    <End Type="SnippetCacheEntities.Comment" Role="Comment" Multiplicity="*" />
+                    <ReferentialConstraint>
+                        <Principal Role="Snippet">
+                            <PropertyRef Name="Id" />
+                        </Principal>
+                        <Dependent Role="Comment">
+                            <PropertyRef Name="Snippet_Id" />
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="FK_UserComment">
+                    <End Type="SnippetCacheEntities.User" Role="User" Multiplicity="1" />
+                    <End Type="SnippetCacheEntities.Comment" Role="Comment" Multiplicity="*" />
+                    <ReferentialConstraint>
+                        <Principal Role="User">
+                            <PropertyRef Name="Id" />
+                            <PropertyRef Name="FormsAuthId" />
+                        </Principal>
+                        <Dependent Role="Comment">
+                            <PropertyRef Name="User_Id" />
+                            <PropertyRef Name="User_FormsAuthId" />
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="FK_SnippetFile">
+                    <End Type="SnippetCacheEntities.Snippet" Role="Snippet" Multiplicity="1" />
+                    <End Type="SnippetCacheEntities.File" Role="File" Multiplicity="*" />
+                    <ReferentialConstraint>
+                        <Principal Role="Snippet">
+                            <PropertyRef Name="Id" />
+                        </Principal>
+                        <Dependent Role="File">
+                            <PropertyRef Name="Snippet_Id" />
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="FK_SnippetHyperlink">
+                    <End Type="SnippetCacheEntities.Snippet" Role="Snippet" Multiplicity="1" />
+                    <End Type="SnippetCacheEntities.Hyperlink" Role="Hyperlink" Multiplicity="*" />
+                    <ReferentialConstraint>
+                        <Principal Role="Snippet">
+                            <PropertyRef Name="Id" />
+                        </Principal>
+                        <Dependent Role="Hyperlink">
+                            <PropertyRef Name="Snippet_Id" />
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="FK_LanguageSnippet">
+                    <End Type="SnippetCacheEntities.Language" Role="Language" Multiplicity="1" />
+                    <End Type="SnippetCacheEntities.Snippet" Role="Snippet" Multiplicity="*" />
+                    <ReferentialConstraint>
+                        <Principal Role="Language">
+                            <PropertyRef Name="Id" />
+                        </Principal>
+                        <Dependent Role="Snippet">
+                            <PropertyRef Name="Language_Id" />
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="FK_NotificationTypeNotification">
+                    <End Type="SnippetCacheEntities.NotificationType" Role="NotificationType" Multiplicity="1" />
+                    <End Type="SnippetCacheEntities.Notification" Role="Notification" Multiplicity="*" />
+                    <ReferentialConstraint>
+                        <Principal Role="NotificationType">
+                            <PropertyRef Name="Id" />
+                        </Principal>
+                        <Dependent Role="Notification">
+                            <PropertyRef Name="NotificationType_Id" />
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="FK_UserNotification">
+                    <End Type="SnippetCacheEntities.User" Role="User" Multiplicity="1" />
+                    <End Type="SnippetCacheEntities.Notification" Role="Notification" Multiplicity="*" />
+                    <ReferentialConstraint>
+                        <Principal Role="User">
+                            <PropertyRef Name="Id" />
+                            <PropertyRef Name="FormsAuthId" />
+                        </Principal>
+                        <Dependent Role="Notification">
+                            <PropertyRef Name="User_Id" />
+                            <PropertyRef Name="User_FormsAuthId" />
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="FK_UserSnippet">
+                    <End Type="SnippetCacheEntities.User" Role="User" Multiplicity="1" />
+                    <End Type="SnippetCacheEntities.Snippet" Role="Snippet" Multiplicity="*" />
+                    <ReferentialConstraint>
+                        <Principal Role="User">
+                            <PropertyRef Name="Id" />
+                            <PropertyRef Name="FormsAuthId" />
+                        </Principal>
+                        <Dependent Role="Snippet">
+                            <PropertyRef Name="User_Id" />
+                            <PropertyRef Name="User_FormsAuthId" />
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+            </Schema>
+        </edmx:ConceptualModels>
+        <!-- C-S mapping content -->
+        <edmx:Mappings>
+        <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SnippetCacheEntitiesStoreContainer" CdmEntityContainer="SnippetCacheEntitiesContainer">
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="IsTypeOf(SnippetCacheEntities.Comment)">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+          <ScalarProperty Name="Snippet_Id" ColumnName="Snippet_Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="User_FormsAuthId" ColumnName="User_FormsAuthId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Files">
+      <EntityTypeMapping TypeName="IsTypeOf(SnippetCacheEntities.File)">
+        <MappingFragment StoreEntitySet="Files">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+          <ScalarProperty Name="Snippet_Id" ColumnName="Snippet_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hyperlinks">
+      <EntityTypeMapping TypeName="IsTypeOf(SnippetCacheEntities.Hyperlink)">
+        <MappingFragment StoreEntitySet="Hyperlinks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Uri" ColumnName="Uri" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+          <ScalarProperty Name="Snippet_Id" ColumnName="Snippet_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="IsTypeOf(SnippetCacheEntities.Language)">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="IsTypeOf(SnippetCacheEntities.Notification)">
+        <MappingFragment StoreEntitySet="Notifications">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="NotificationType_Id" ColumnName="NotificationType_Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="User_FormsAuthId" ColumnName="User_FormsAuthId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(SnippetCacheEntities.NotificationType)">
+        <MappingFragment StoreEntitySet="NotificationTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Snippets">
+      <EntityTypeMapping TypeName="IsTypeOf(SnippetCacheEntities.Snippet)">
+        <MappingFragment StoreEntitySet="Snippets">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="PreviewData" ColumnName="PreviewData" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+          <ScalarProperty Name="IsPublic" ColumnName="IsPublic" />
+          <ScalarProperty Name="Language_Id" ColumnName="Language_Id" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="User_FormsAuthId" ColumnName="User_FormsAuthId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(SnippetCacheEntities.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FormsAuthId" ColumnName="FormsAuthId" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="AvatarImage" ColumnName="AvatarImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+    </edmx:Runtime>
+    <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+    <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+        <edmx:Connection>
+            <DesignerInfoPropertySet>
+                <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+            </DesignerInfoPropertySet>
+        </edmx:Connection>
+        <edmx:Options>
+            <DesignerInfoPropertySet>
+                <DesignerProperty Name="ValidateOnBuild" Value="true" />
+                <DesignerProperty Name="EnablePluralization" Value="True" />
+                <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+            </DesignerInfoPropertySet>
+        </edmx:Options>
+        <!-- Diagram content (shape and connector positions) -->
+        <edmx:Diagrams>
+            <Diagram Name="SnippetCacheEntities" ZoomLevel="82">
+                <EntityTypeShape EntityType="SnippetCacheEntities.Comment" Width="1.5" PointX="3" PointY="5.875"
+                                 Height="2.4047859700520888" />
+                <EntityTypeShape EntityType="SnippetCacheEntities.File" Width="1.5" PointX="5.25" PointY="9"
+                                 Height="2.2263395182291674" />
+                <EntityTypeShape EntityType="SnippetCacheEntities.Hyperlink" Width="1.5" PointX="5.25" PointY="12"
+                                 Height="2.0478930664062531" />
+                <EntityTypeShape EntityType="SnippetCacheEntities.Language" Width="1.5" PointX="0.75" PointY="2.25"
+                                 Height="1.6910001627604174" />
+                <EntityTypeShape EntityType="SnippetCacheEntities.Notification" Width="1.5" PointX="6" PointY="5.875"
+                                 Height="2.4047859700520888" />
+                <EntityTypeShape EntityType="SnippetCacheEntities.NotificationType" Width="1.5" PointX="3.75" PointY="15.25"
+                                 Height="1.6910001627604174" />
+                <EntityTypeShape EntityType="SnippetCacheEntities.Snippet" Width="1.5" PointX="3" PointY="1.125"
+                                 Height="3.8323575846354174" />
+                <EntityTypeShape EntityType="SnippetCacheEntities.User" Width="1.5" PointX="0.75" PointY="5.875"
+                                 Height="2.4047859700520755" />
+                <AssociationConnector Association="SnippetCacheEntities.FK_SnippetComment">
+                    <ConnectorPoint PointX="3.75" PointY="4.9573575846354174" />
+                    <ConnectorPoint PointX="3.75" PointY="5.875" />
+                </AssociationConnector>
+                <AssociationConnector Association="SnippetCacheEntities.FK_UserComment">
+                    <ConnectorPoint PointX="2.25" PointY="7.0773929850260373" />
+                    <ConnectorPoint PointX="3" PointY="7.0773929850260373" />
+                </AssociationConnector>
+                <AssociationConnector Association="SnippetCacheEntities.FK_SnippetFile">
+                    <ConnectorPoint PointX="4.5" PointY="3.0411787923177087" />
+                    <ConnectorPoint PointX="5.59375" PointY="3.0411787923177087" />
+                    <ConnectorPoint PointX="5.59375" PointY="9" />
+                </AssociationConnector>
+                <AssociationConnector Association="SnippetCacheEntities.FK_SnippetHyperlink">
+                    <ConnectorPoint PointX="4.5" PointY="4.9573575846354174" />
+                    <ConnectorPoint PointX="4.875" PointY="5.3323575846354174" />
+                    <ConnectorPoint PointX="4.875" PointY="13.023946533203127" />
+                    <ConnectorPoint PointX="5.25" PointY="13.023946533203127" />
+                </AssociationConnector>
+                <AssociationConnector Association="SnippetCacheEntities.FK_LanguageSnippet">
+                    <ConnectorPoint PointX="2.25" PointY="3.0955000813802087" />
+                    <ConnectorPoint PointX="2.5416666666666665" PointY="3.0955000813802083" />
+                    <ConnectorPoint PointX="2.7083333333333335" PointY="3.0955000813802087" />
+                    <ConnectorPoint PointX="3" PointY="3.0955000813802087" />
+                </AssociationConnector>
+                <AssociationConnector Association="SnippetCacheEntities.FK_NotificationTypeNotification">
+                    <ConnectorPoint PointX="5.25" PointY="16.095500081380209" />
+                    <ConnectorPoint PointX="7.15625" PointY="16.095500081380209" />
+                    <ConnectorPoint PointX="7.15625" PointY="8.2797859700520888" />
+                </AssociationConnector>
+                <AssociationConnector Association="SnippetCacheEntities.FK_UserNotification">
+                    <ConnectorPoint PointX="2.2500000000000004" PointY="8.2797859700520746" />
+                    <ConnectorPoint PointX="2.6250000000000142" PointY="8.6547859700520888" />
+                    <ConnectorPoint PointX="4.791666666666667" PointY="8.6547859700520888" />
+                    <ConnectorPoint PointX="4.958333333333333" PointY="8.6547859700520888" />
+                    <ConnectorPoint PointX="5.6261528461538468" PointY="8.6547859700520888" />
+                    <ConnectorPoint PointX="6.0011528461538459" PointY="8.2797859700520888" />
+                </AssociationConnector>
+                <AssociationConnector Association="SnippetCacheEntities.FK_UserSnippet">
+                    <ConnectorPoint PointX="2.25" PointY="5.875" />
+                    <ConnectorPoint PointX="2.625" PointY="5.5" />
+                    <ConnectorPoint PointX="2.625" PointY="2.0789980406901107" />
+                    <ConnectorPoint PointX="3" PointY="2.0789980406901107" />
+                </AssociationConnector>
+            </Diagram>
+        </edmx:Diagrams>
+    </edmx:Designer>
+</edmx:Edmx>

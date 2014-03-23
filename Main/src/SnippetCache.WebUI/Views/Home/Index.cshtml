@@ -1,0 +1,39 @@
+﻿@using SnippetCache.WebUI.Infrastructure.AccountData
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@{
+    int userId;
+    Guid userGuid;
+
+    if (User.Identity.IsAuthenticated)
+    {
+        var identity = ((CustomIdentity) User.Identity);
+        userId = identity.UserId;
+        userGuid = identity.UserGuid;
+    }
+    else
+    {
+        userId = -1;
+        userGuid = Guid.Empty;
+    }
+}
+
+<div>
+    @{
+        if (!string.IsNullOrEmpty(ViewBag.Message))
+        {
+            <h2>@ViewBag.Message</h2>
+        }
+    }
+    
+    <div>
+        <div>
+            @Html.ActionLink("New Public Snippet", "Create", "Public", new {area = "Snippets", userId, userGuid}, new {id = "home-view-button"})
+        </div>
+        <div>
+            @Html.ActionLink("New Private Snippet", "Create", "Private", new {area = "Snippets", userId, userGuid}, new {id = "home-view-button"})
+        </div>
+    </div>
+</div>

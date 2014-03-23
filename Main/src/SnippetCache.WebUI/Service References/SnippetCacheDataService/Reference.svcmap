@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="80a420ee-3077-486b-8b45-76ab90e10621" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://nategreenwood.com/services/snippetcache/datawcf/Snippetcachedataservice.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SnippetCacheDataService5.xsd" MetadataType="Schema" ID="5444b5a7-7c1a-4a4b-a457-a6c8a7026d91" SourceId="1" SourceUrl="http://nategreenwood.com/services/snippetcache/DataWcf/SnippetCacheDataService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SnippetCacheDataService51.xsd" MetadataType="Schema" ID="952b4f5a-5d90-40be-b7be-c3800a5041f3" SourceId="1" SourceUrl="http://nategreenwood.com/services/snippetcache/DataWcf/SnippetCacheDataService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SnippetCacheDataService1.wsdl" MetadataType="Wsdl" ID="e085a323-58ef-4613-9ce9-34c45900297b" SourceId="1" SourceUrl="http://nategreenwood.com/services/snippetcache/DataWcf/SnippetCacheDataService.svc?wsdl" />
+    <MetadataFile FileName="SnippetCacheDataService52.xsd" MetadataType="Schema" ID="f8ef6590-faa6-4d2b-bb16-71f2c2c313a8" SourceId="1" SourceUrl="http://nategreenwood.com/services/snippetcache/DataWcf/SnippetCacheDataService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SnippetCacheDataService1.disco" MetadataType="Disco" ID="c11596f9-e81d-458a-9f74-7e2111db8e67" SourceId="1" SourceUrl="http://nategreenwood.com/services/snippetcache/DataWcf/SnippetCacheDataService.svc?disco" />
+    <MetadataFile FileName="SnippetCacheDataService53.xsd" MetadataType="Schema" ID="4e8c8f66-210d-48d3-b228-21d96b5cb607" SourceId="1" SourceUrl="http://nategreenwood.com/services/snippetcache/DataWcf/SnippetCacheDataService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SnippetCacheDataService54.xsd" MetadataType="Schema" ID="c959f0b2-7759-4115-857b-d218f358c8f8" SourceId="1" SourceUrl="http://nategreenwood.com/services/snippetcache/DataWcf/SnippetCacheDataService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

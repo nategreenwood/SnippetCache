@@ -1,0 +1,31 @@
+﻿@using SnippetCache.WebUI.Areas.Snippets.Models
+@using SnippetCache.WebUI.HtmlHelpers
+@model IEnumerable<SnippetCache.WebUI.Areas.Snippets.Models.SnippetDetailsModel>
+@{
+    ViewBag.Title = "Public Snippets";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="headerbar">
+    <h1>Public Snippets</h1>
+</div>
+<div class="paging-links">
+    @if (Model.Any())
+    {
+        @Html.PageLinks(((List<SnippetDetailsModel>)Model)[0].PagingInfo, d => Url.Action("All", new { page = (d <= 0 ? 1 : d) }))
+    }
+</div>
+
+@{
+    foreach (SnippetDetailsModel indexModel in Model)
+    {
+    @Html.Partial("SnippetPreviewTable", indexModel)
+    }
+}
+
+<div class="paging-links">
+    @if (Model.Any())
+    {
+        @Html.PageLinks(((List<SnippetDetailsModel>)Model)[0].PagingInfo, d => Url.Action("All", new { page = (d <= 0 ? 1 : d) }))
+    }
+</div>

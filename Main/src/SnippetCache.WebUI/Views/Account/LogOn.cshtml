@@ -1,0 +1,55 @@
+﻿@model SnippetCache.WebUI.Models.LogOnModel
+@{
+    ViewBag.Title = "Log On";
+}
+<div>
+    <h1>Log On</h1>
+    @using (Html.BeginForm("Logon", "Account", new { area = string.Empty }, FormMethod.Post))
+    {
+        @Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="editor-field">
+                            @Html.LabelFor(m => m.UserName)
+                            @Html.TextBoxFor(m => m.UserName)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.ValidationMessageFor(m => m.UserName)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-field">
+                            @Html.LabelFor(m => m.Password)
+                            @Html.PasswordFor(m => m.Password)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Log On" id="login-submit" />
+                        @Html.ActionLink("Cancel", "All", "Public", new { area = "Snippets" }, new { id = "login-cancel-button", @class="button-anchor" })
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    }
+</div>

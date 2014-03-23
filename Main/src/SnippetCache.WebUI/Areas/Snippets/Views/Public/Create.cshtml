@@ -1,0 +1,101 @@
+﻿@model SnippetCache.WebUI.Areas.Snippets.Models.CreateSnippetModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    IEnumerable<SelectListItem> languages = new List<SelectListItem>();
+    foreach (var languageDTO in Model.Languages)
+    {
+        var temp = new SelectListItem
+        {
+            Text = languageDTO.Name,
+            Value = languageDTO.Id.ToString(CultureInfo.InvariantCulture)
+        };
+        ((List<SelectListItem>)languages).Add(temp);
+    }
+}
+@using System.Globalization
+@using SnippetCache.Data.DTO
+
+<div id="headerbar">
+    <h1>Create a Public Snippet</h1>
+</div>
+<div>
+    @Html.ValidationSummary(true)
+</div>
+<table class="snippet-data-table">
+    <tr>
+        <td>
+            <div class="editor-label">
+                @Html.LabelFor(d => d.Name)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(d => d.Name)
+                @Html.ValidationMessageFor(d => d.Name)
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="editor-field">
+                @Html.LabelFor(d => d.Description)
+                @Html.TextBoxFor(d => d.Description)
+                @Html.ValidationMessageFor(d => d.Description)
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="editor-field">
+                @Html.LabelFor(d => d.Languages)
+                @Html.DropDownList("languages", languages, new{ id = "ddlLanguages" })
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="editor-field">
+                @Html.LabelFor(d => d.Data)
+                <div id="snippet-editor" class="snippet-editor">
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Partial("_UploadPublicFilePartial")
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Partial("_AddHyperlinkPartial")
+        </td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td>
+            <div>
+                @Html.ActionLink("Cancel", "All", "Public", new { area = "Snippets" }, null)
+
+            </div>
+        </td>
+        <td>
+
+            <div>
+                @Html.ActionLink("Create", "Create", "Public", new { area = "Snippets" }, null)
+            </div>
+        </td>
+    </tr>
+</table>
+@section Scripts {
+<script type="text/javascript">
+    var editor = ace.edit("snippet-editor");
+    editor.setTheme("ace/theme/eclipse");
+    editor.getSession().setUseWorker(false);
+    editor.getSession().setMode("ace/mode/javascript");
+
+</script>
+}
+
+

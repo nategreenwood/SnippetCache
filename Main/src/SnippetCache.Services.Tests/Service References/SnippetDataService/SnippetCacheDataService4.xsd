@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://snippetcache.net/services/snippetcache/DataWcf/SnippetCacheDataService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" />
+  <xs:import schemaLocation="http://snippetcache.net/services/snippetcache/DataWcf/SnippetCacheDataService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" />
+  <xs:element name="CreateNewComment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q1:CreateNewCommentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewCommentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="CreateNewCommentResult" nillable="true" type="q2:CreateNewCommentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateComment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q3:UpdateCommentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCommentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="UpdateCommentResult" nillable="true" type="q4:UpdateCommentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteComment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q5:DeleteCommentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCommentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="DeleteCommentResult" nillable="true" type="q6:DeleteCommentResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFilesBySnippetId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q7:GetFilesBySnippetIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFilesBySnippetIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetFilesBySnippetIdResult" nillable="true" type="q8:GetFilesBySnippetIdResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q9:GetFileByIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetFileByIdResult" nillable="true" type="q10:GetFileByIdResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFilesByUserId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q11:GetFilesByUserIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFilesByUserIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetFilesByUserIdResult" nillable="true" type="q12:GetFilesByUserIdResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q13:CreateFileRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="CreateFileResult" nillable="true" type="q14:CreateFileResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q15:UpdateFileRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="UpdateFileResult" nillable="true" type="q16:UpdateFileResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q17:DeleteFileRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="DeleteFileResult" nillable="true" type="q18:DeleteFileResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTotalSnippetCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isPrivate" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTotalSnippetCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTotalSnippetCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHyperlinksBySnippetId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q19:GetHyperlinksBySnippetIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHyperlinksBySnippetIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetHyperlinksBySnippetIdResult" nillable="true" type="q20:GetHyperlinksBySnippetIdResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHyperlinkById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q21:GetHyperlinkByIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHyperlinkByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetHyperlinkByIdResult" nillable="true" type="q22:GetHyperlinkByIdResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHyperlinksByUserId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q23:GetHyperlinksByUserIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHyperlinksByUserIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetHyperlinksByUserIdResult" nillable="true" type="q24:GetHyperlinksByUserIdResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateHyperlink">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q25:CreateHyperlinkRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateHyperlinkResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="CreateHyperlinkResult" nillable="true" type="q26:CreateHyperlinkResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateHyperlink">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q27:UpdateHyperlinkRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateHyperlinkResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="UpdateHyperlinkResult" nillable="true" type="q28:UpdateHyperlinkResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteHyperlink">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q29:DeleteHyperlinkRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteHyperlinkResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="DeleteHyperlinkResult" nillable="true" type="q30:DeleteHyperlinkResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPagedSnippetList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q31:GetPagedSnippetListRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPagedSnippetListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetPagedSnippetListResult" nillable="true" type="q32:GetPagedSnippetListResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSnippetById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q33:GetSnippetByIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSnippetByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetSnippetByIdResult" nillable="true" type="q34:GetSnippetByIdResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSnippetsByUserId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q35:GetSnippetsByUserIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSnippetsByUserIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetSnippetsByUserIdResult" nillable="true" type="q36:GetSnippetsByUserIdResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSnippetByGuid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q37:GetSnippetByGuidRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSnippetByGuidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetSnippetByGuidResult" nillable="true" type="q38:GetSnippetByGuidResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSnippet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q39:CreateSnippetRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSnippetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="CreateSnippetResult" nillable="true" type="q40:CreateSnippetResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSnippet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q41:UpdateSnippetRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSnippetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="UpdateSnippetResult" nillable="true" type="q42:UpdateSnippetResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSnippet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q43:DeleteSnippetRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSnippetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="DeleteSnippetResult" nillable="true" type="q44:DeleteSnippetResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSnippetsByTitle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q45:GetSnippetsByTitleRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSnippetsByTitleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetSnippetsByTitleResult" nillable="true" type="q46:GetSnippetsByTitleResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSnippetsByDescription">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q47:GetSnippetsByDescriptionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSnippetsByDescriptionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetSnippetsByDescriptionResult" nillable="true" type="q48:GetSnippetsByDescriptionResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSnippetsByData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q49:GetSnippetsByDataRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSnippetsByDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetSnippetsByDataResult" nillable="true" type="q50:GetSnippetsByDataResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllLanguages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q51:GetAllLanguagesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllLanguagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetAllLanguagesResult" nillable="true" type="q52:GetAllLanguagesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLanguageById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q53:GetLanguageByIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLanguageByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetLanguageByIdResult" nillable="true" type="q54:GetLanguageByIdResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLanguageByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q55:GetLanguageByNameRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLanguageByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetLanguageByNameResult" nillable="true" type="q56:GetLanguageByNameResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewLanguage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q57:CreateNewLanguageRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewLanguageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="CreateNewLanguageResult" nillable="true" type="q58:CreateNewLanguageResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateLanguage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q59:UpdateLanguageRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateLanguageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="UpdateLanguageResult" nillable="true" type="q60:UpdateLanguageResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteLanguage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q61:DeleteLanguageRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteLanguageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="DeleteLanguageResult" nillable="true" type="q62:DeleteLanguageResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q63:GetAllUsersRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetAllUsersResult" nillable="true" type="q64:GetAllUsersResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q65:GetUserByIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetUserByIdResult" nillable="true" type="q66:GetUserByIdResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q67:GetUserByNameRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetUserByNameResult" nillable="true" type="q68:GetUserByNameResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q69:CreateNewUserRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="CreateNewUserResult" nillable="true" type="q70:CreateNewUserResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q71:UpdateUserRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="UpdateUserResult" nillable="true" type="q72:UpdateUserResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q73:DeleteUserRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="DeleteUserResult" nillable="true" type="q74:DeleteUserResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllNotificationTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q75:GetAllNotificationTypesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllNotificationTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetAllNotificationTypesResult" nillable="true" type="q76:GetAllNotificationTypesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNotificationTypeById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q77:GetNotificationTypesByIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNotificationTypeByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetNotificationTypeByIdResult" nillable="true" type="q78:GetNotificationTypesByIdResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNotificationTypeByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q79:GetNotificationTypesByNameRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNotificationTypeByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetNotificationTypeByNameResult" nillable="true" type="q80:GetNotificationTypesByNameResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewNotificationType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q81:CreateNewNotificationTypesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewNotificationTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="CreateNewNotificationTypeResult" nillable="true" type="q82:CreateNewNotificationTypesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateNotificationType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q83:UpdateNotificationTypesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateNotificationTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="UpdateNotificationTypeResult" nillable="true" type="q84:UpdateNotificationTypesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteNotificationType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q85:DeleteNotificationTypesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteNotificationTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="DeleteNotificationTypeResult" nillable="true" type="q86:DeleteNotificationTypesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllNotifications">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q87:GetAllNotificationsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllNotificationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetAllNotificationsResult" nillable="true" type="q88:GetAllNotificationsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNotificationById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q89:GetNotificationsByIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNotificationByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetNotificationByIdResult" nillable="true" type="q90:GetNotificationsByIdResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNotificationsForUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q91:GetAllNotificationsForUserRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNotificationsForUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetNotificationsForUserResult" nillable="true" type="q92:GetAllNotificationsForUserResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewNotification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q93:CreateNewNotificationsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewNotificationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="CreateNewNotificationResult" nillable="true" type="q94:CreateNewNotificationsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateNotification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q95:UpdateNotificationsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateNotificationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="UpdateNotificationResult" nillable="true" type="q96:UpdateNotificationsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteNotification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q97:DeleteNotificationsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteNotificationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="DeleteNotificationResult" nillable="true" type="q98:DeleteNotificationsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllComments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q99:GetAllCommentsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCommentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetAllCommentsResult" nillable="true" type="q100:GetAllCommentsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCommentsBySnippetId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q101:GetAllCommentsForSnippetRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCommentsBySnippetIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetAllCommentsBySnippetIdResult" nillable="true" type="q102:GetAllCommentsForSnippetResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCommentById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Requests" minOccurs="0" name="request" nillable="true" type="q103:GetCommentByIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCommentByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/SnippetCache.Data.Wcf.Responses" minOccurs="0" name="GetCommentByIdResult" nillable="true" type="q104:GetCommentByIdResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

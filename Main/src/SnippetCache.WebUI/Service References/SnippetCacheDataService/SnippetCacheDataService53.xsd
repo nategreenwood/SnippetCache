@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/SnippetCache.Data.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SnippetCache.Data.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://nategreenwood.com/services/snippetcache/DataWcf/SnippetCacheDataService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfFileDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FileDTO" nillable="true" type="tns:FileDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFileDTO" nillable="true" type="tns:ArrayOfFileDTO" />
+  <xs:complexType name="FileDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LastModified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Snippet_Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileDTO" nillable="true" type="tns:FileDTO" />
+  <xs:complexType name="ArrayOfHyperlinkDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HyperlinkDTO" nillable="true" type="tns:HyperlinkDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHyperlinkDTO" nillable="true" type="tns:ArrayOfHyperlinkDTO" />
+  <xs:complexType name="HyperlinkDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LastModified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Snippet_Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Uri" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HyperlinkDTO" nillable="true" type="tns:HyperlinkDTO" />
+  <xs:complexType name="ArrayOfSnippetDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SnippetDTO" nillable="true" type="tns:SnippetDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSnippetDTO" nillable="true" type="tns:ArrayOfSnippetDTO" />
+  <xs:complexType name="SnippetDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Guid" type="ser:guid" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IsPublic" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Language_Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LastModified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreviewData" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="User_FormsAuthId" type="ser:guid" />
+      <xs:element minOccurs="0" name="User_Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SnippetDTO" nillable="true" type="tns:SnippetDTO" />
+</xs:schema>

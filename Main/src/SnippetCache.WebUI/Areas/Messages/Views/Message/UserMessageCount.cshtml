@@ -1,0 +1,18 @@
+﻿@using SnippetCache.WebUI.Infrastructure.AccountData
+@model string
+@{
+    #if LOGALL
+        Logger.LogInfo("UserMessageCount View Executing", LogType.Notify);
+    #endif
+    int userId = 0;
+    Guid userGuid = Guid.Empty;
+
+    if (User.Identity.IsAuthenticated)
+    {
+        var identity = ((CustomIdentity) User.Identity);
+        userId = identity.UserId;
+        userGuid = identity.UserGuid;
+    }
+}
+
+@Html.ActionLink("(" + Model + ") messages ", "UserMessages", "Message", new {area = "Messages", userId, userGuid}, null)

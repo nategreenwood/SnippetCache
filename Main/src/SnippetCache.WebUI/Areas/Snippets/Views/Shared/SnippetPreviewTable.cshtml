@@ -1,0 +1,45 @@
+﻿@model SnippetCache.WebUI.Areas.Snippets.Models.SnippetDetailsModel
+@{
+    if (TempData["Message"] != null && !string.IsNullOrEmpty(TempData["Message"].ToString()))
+    {
+        <div class="message">@TempData["Message"]</div>
+    }
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                @Model.Name
+            </th>
+            <th>
+                @Model.Description
+            </th>
+        </tr>
+        <tr>
+            <th>
+                @if (Model.UserAvatar == null)
+                {
+                    @Model.UserName
+                }
+                else
+                {
+                    <img class="user-image-thumbnail" src="@Url.Action("GetUserThumbnailImage", "Home", new {area = string.Empty, userId = Model.UserId, userGuid = Model.UserGuid})" alt="userimage" />
+                    <div class="user-image-thumbnail-name">@Html.ActionLink(Model.UserName, "Profile", "User", new {area = "Users", userId = Model.UserId, userGuid = Model.UserGuid}, null)</div>
+                }
+            </th>
+            <th>
+                @Html.ActionLink(Model.SnippetUrl, "Snippet", "Public", new {guid = Model.SnippetUrl}, null)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="4">
+                <div>
+                    <div id="preview-editor">@Model.PreviewData</div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,39 @@
+﻿<div id="create-public-hyperlink-content">
+    <input type="text" id="hyperlink-description"/>
+</div>
+<div id="add-hyperlink-submit" >
+    @* @Html.ActionLink("Add", "AddHyperlink", "Public", new { area = "Snippets"}, new { id = "postHyperlink "}) *@
+    <a id="postHyperlink">Add</a>
+</div>
+<div id="attached-hyperlinks">
+    
+</div>
+
+<script type="text/javascript" defer="defer">
+    $(function() {
+        var link = $("#hyperlink-description").val();
+        if (link == "") {
+            $("#hyperlink-description").val("http://");
+        }
+    });
+
+    $(function() {
+        $("#postHyperlink").click(function() {
+            var value = $("#hyperlink-description").val();
+            if (value === "http://") return;
+            $.ajax({
+                url: "AddHyperlink",
+                data: { hyperlink: value },
+                success: function(data) {
+                    // var element = $("#attached-hyperlinks");
+                    //  element.append("<div>" + value + "</div>");
+                    var element = $("#create-public-hyperlink-table");
+                    element.append("<tr><td><div id='attached-hyperlinks'>" + value + "</div></td></tr>");
+                },
+                error: function() {
+                    alert("error");
+                }
+            });
+        });
+    });
+</script>
